@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904720747549",
+    "project_id": "skb-network",
+    "storage_bucket": "skb-network.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904720747549:android:1989353161cb64f98c8af4",
+        "android_client_info": {
+          "package_name": "com.example.skbnetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904720747549-61nlosbrroeed3c1p0bt4v1svveg4n3l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUDv519r3eSgipY8gS49I2Jxp8she_myM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904720747549-61nlosbrroeed3c1p0bt4v1svveg4n3l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
