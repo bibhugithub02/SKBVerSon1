@@ -85,8 +85,13 @@ public class AddSiteForAClient extends AppCompatActivity {
         siteDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               siteName = SiteDescription.getText().toString().trim();
-                addToSiteToClientMasterDataBase();
+               if(SiteDescription.getText().toString().trim().isEmpty()){
+                   Toast.makeText(AddSiteForAClient.this, "Site can't be blank", Toast.LENGTH_SHORT).show();
+               }else{
+                   siteName = SiteDescription.getText().toString().trim();
+                   addToSiteToClientMasterDataBase();
+               }
+
             }
         });
 

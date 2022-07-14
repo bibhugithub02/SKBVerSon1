@@ -105,8 +105,13 @@ public class addSubCategoryItems extends AppCompatActivity {
                 itemDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        subItem = itemDescription.getText().toString().trim();
-                        addToDataBase();
+                        if(itemDescription.getText().toString().trim().isEmpty()){
+                            Toast.makeText(addSubCategoryItems.this, "Sub category cannot be blank", Toast.LENGTH_SHORT).show();
+                        }else{
+                            subItem = itemDescription.getText().toString().trim();
+                            addToDataBase();
+                        }
+
                     }
                 });
 
@@ -143,7 +148,7 @@ public class addSubCategoryItems extends AppCompatActivity {
         ModelSubCategoryItemMaster obj = new ModelSubCategoryItemMaster(dMSCIMItemName,dMSCIMItemUrl,
                 dMSCIMSubCategoryItemName, dMSCIMDateStamp, dMSCIMEnterBy, dMSCIMProductBy,dMSCIMDelete);
 
-        dbr.child(timeStamp).setValue(obj);
+        dbr.child(dMSCIMItemName+"_"+dMSCIMSubCategoryItemName).setValue(obj);
 
 
         Toast.makeText(addSubCategoryItems.this, "Sub Category Item been added successfully", Toast.LENGTH_SHORT).show();

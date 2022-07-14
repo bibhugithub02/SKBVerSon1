@@ -43,16 +43,16 @@ public class MyAdopterForAddNewClientToMaster extends FirebaseRecyclerAdapter
 
     class myViewHolder extends RecyclerView.ViewHolder{
 
-    TextView textView17, textView18;
+    TextView textView17, addSite;
 
 
     public myViewHolder(@NonNull View itemView) {
         super(itemView);
 
         textView17 = itemView.findViewById(R.id.textView17);
-        textView18 = itemView.findViewById(R.id.textView18);
+        addSite = itemView.findViewById(R.id.textView18);
 
-        textView18.setOnClickListener(new View.OnClickListener() {
+        addSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Take this to next screen to add Site for specified Client

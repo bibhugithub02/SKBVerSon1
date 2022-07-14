@@ -90,26 +90,8 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Check the flag and if the flag is N then delete the record
-                    FirebaseDatabase db = FirebaseDatabase.getInstance();
-                    DatabaseReference dbr = db.getReference("dModelSubCategoryItemMaster");
-                    Query query= dbr.orderByChild("dMSCIMSubCategoryItemName").
-                            equalTo(subCategoryDesc.getText().toString());
 
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot ds: snapshot.getChildren()){
-                                ds.getRef().removeValue();
-                                Toast.makeText(itemView.getContext(), "", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                    getConfirmationFromTheUser();
 
                     Toast.makeText(itemView.getContext(), "Choose:" + subCategoryDesc.getText().toString(), Toast.LENGTH_SHORT).show();
 
@@ -133,8 +115,55 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
                 }
             });
         }
+
+        private void getConfirmationFromTheUser() {
+
+            //EditText SiteDescription = new EditText(deleteItem.getContext());
+            AlertDialog.Builder siteDescriptionDialog = new AlertDialog.Builder(delete.getContext());
+            siteDescriptionDialog.setTitle("Delete Confirmation Dialog"); // Set the title of the Popup
+            //siteDescriptionDialog.setMessage("Enter Site for Client"); // Set the message to be displayed to the user on the Popup
+            // siteDescriptionDialog.setView(SiteDescription);
+
+            siteDescriptionDialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    Toast.makeText(delete.getContext(), "Yes been selected", Toast.LENGTH_SHORT).show();
+                    deleteItemFromdModelSubCategoryItemMaster();
+                }
+            });
+            siteDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Close the dialog
+                }
+            });
+            siteDescriptionDialog.create().show();
+        }
+
+        private void deleteItemFromdModelSubCategoryItemMaster() {
+
+            //Check the flag and if the flag is N then delete the record
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            DatabaseReference dbr = db.getReference("dModelSubCategoryItemMaster");
+            Query query= dbr.orderByChild("dMSCIMSubCategoryItemName").
+                    equalTo(subCategoryDesc.getText().toString());
+
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot ds: snapshot.getChildren()){
+                        ds.getRef().removeValue();
+                        Toast.makeText(itemView.getContext(), "", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+        }
+
+
     }
-
-
-
-}

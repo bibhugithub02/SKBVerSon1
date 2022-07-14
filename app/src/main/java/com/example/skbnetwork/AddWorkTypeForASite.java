@@ -90,8 +90,13 @@ public class AddWorkTypeForASite extends AppCompatActivity {
         workTypeDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                workType = workTypeDescription.getText().toString().trim();
-                addWorkTypeToWorkMasterDataBase();
+                if(workTypeDescription.getText().toString().trim().isEmpty()){
+                    Toast.makeText(AddWorkTypeForASite.this, "Work Type Can't be Blank", Toast.LENGTH_SHORT).show();
+                }else{
+                    workType = workTypeDescription.getText().toString().trim();
+                    addWorkTypeToWorkMasterDataBase();
+                }
+
             }
         });
 

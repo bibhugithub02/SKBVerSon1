@@ -67,8 +67,13 @@ public class AddNewClientToMaster extends AppCompatActivity {
                 clientDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if(clientDescription.getText().toString().trim().isEmpty()){
+                            Toast.makeText(AddNewClientToMaster.this, "Client Name cannot be blank", Toast.LENGTH_SHORT).show();
+
+                        }else{
                         clientName = clientDescription.getText().toString().trim();
                         addToClientMasterDataBase();
+                        }
                     }
                 });
 
