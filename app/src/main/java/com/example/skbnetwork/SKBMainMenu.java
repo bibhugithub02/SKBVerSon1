@@ -52,7 +52,7 @@ public class SKBMainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerView.class);
-                //startActivity(i); ///Demo11072022
+                startActivity(i); ///Demo11072022
             }
         });
 

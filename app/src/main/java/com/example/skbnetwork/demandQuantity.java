@@ -11,6 +11,7 @@ public class demandQuantity extends AppCompatActivity {
 
     String clientName, siteName, workType, itemName, subItemName;
     TextView sclientName, ssiteName, sworkType, sitemName, ssubItemName;
+    final String program = "Demand";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,9 @@ public class demandQuantity extends AppCompatActivity {
         sitemName.setText( itemName);
         ssubItemName.setText(subItemName);
 
+        if (program =="Demand"){
+
+        }
 
         Toast.makeText(this, "Code to add Quantity here", Toast.LENGTH_SHORT).show();
     }

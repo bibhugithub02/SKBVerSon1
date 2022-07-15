@@ -47,15 +47,13 @@ public class HeadOfficeMenu extends AppCompatActivity {
             }
         });
 
-
         clientConfiguration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HeadOfficeMenu.this, AddNewClientToMaster.class);
-                //startActivity(i); ///Demo11072022
+                startActivity(i); ///Demo11072022
             }
         });
-
 
         Quit.setOnClickListener(new View.OnClickListener() {
             @Override
