@@ -50,7 +50,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecycler
     {
 
         TextView clientName,siteName, workType, addItemCategory;
-
+        TextView viewItemAtSite;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -58,6 +58,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecycler
             siteName = itemView.findViewById(R.id.textView32);
             workType = itemView.findViewById(R.id.textView33);
             addItemCategory = itemView.findViewById(R.id.textView34);
+            viewItemAtSite = itemView.findViewById(R.id.textView57);
 
             addItemCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -72,6 +73,24 @@ public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecycler
                     i.putExtra("sitename",siteName.getText().toString());
                     i.putExtra("worktype",workType.getText().toString());
                     clientName.getContext().startActivity(i);
+
+                }
+            });
+
+            viewItemAtSite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Code to add the Category for Site
+                    String menuname = "sitemenu";
+                    Intent i = new Intent(itemView.getContext(),DemandItemStatusAtSite.class );
+                    // Parameter used when called from Site Menu Option
+                    //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+                    i.putExtra("menuname",menuname);
+                    i.putExtra("clientname",clientName.getText().toString());
+                    i.putExtra("sitename",siteName.getText().toString());
+                    i.putExtra("worktype",workType.getText().toString());
+                    clientName.getContext().startActivity(i);
+
 
                 }
             });

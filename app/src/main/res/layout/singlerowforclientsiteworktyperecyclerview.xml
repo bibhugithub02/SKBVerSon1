@@ -49,11 +49,24 @@
             android:layout_width="wrap_content"
             android:layout_height="27dp"
             android:layout_marginLeft="215dp"
-            android:padding="2dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:background="@android:drawable/button_onoff_indicator_off"
             android:gravity="center"
+            android:padding="2dp"
             android:text="Add Item To Site"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="60dp"
+            android:background="@android:drawable/button_onoff_indicator_off"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="View Item at Site"
             android:textSize="16sp"
             android:textStyle="bold|italic" />
 

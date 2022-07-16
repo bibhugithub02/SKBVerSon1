@@ -166,15 +166,24 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
 
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        public void onDataChange(@NonNull DataSnapshot snapshot)
+
+                        {
+                            if(snapshot.exists()){
+                                Toast.makeText(itemView.getContext(), "new Record found", Toast.LENGTH_SHORT).show();
+                                alreadyRecorded = "Y";
+                            }else{
+                                alreadyRecorded = "N";
+                            }
+
                             for(DataSnapshot ds: snapshot.getChildren()){
                                 data = ds.getValue(ModelClientSiteWorkTypeItemSubItemQuantityMaster.class);
-                                if (data.getCurrentDemand()>=0){
-                                    alreadyRecorded = "Y";
-                                    Toast.makeText(itemView.getContext(), "Record found", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    alreadyRecorded = "N";
-                                }
+//                                if (data.getCurrentDemand()>=0){
+//                                    alreadyRecorded = "Y";
+//                                    Toast.makeText(itemView.getContext(), "Record found", Toast.LENGTH_SHORT).show();
+//                                }else{
+//                                    alreadyRecorded = "N";
+//                                }
 
                             }
                         }
@@ -201,6 +210,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
                     String dMCSWTISIQMSearchKey1 = clientName +"_" +siteName+"_"+workType;
                     String dMCSWTISIQMSearchKey2 = clientName +"_" +siteName+"_"+workType+"_"+itemName+"_"+subCategoryDesc.getText().toString();
 
+                    String dMCSWTISIQMDateStamp = timeStamp;
                     int approvedDemand = 0;
                     int totalDemand = 0;
                     int totalApproved = 0;
@@ -217,7 +227,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
 
                     ModelClientSiteWorkTypeItemSubItemQuantityMaster obj = new ModelClientSiteWorkTypeItemSubItemQuantityMaster
                             (dMCSWTISIQMClientName,dMCSWTISIQMSiteName,dMCSWTISIQMWorkType,dMCSWTISIQMItemCategory,dMCSWTISIQMSubItem,
-                                    dMCSWTISIQMSearchKey1, dMCSWTISIQMSearchKey2,
+                                    dMCSWTISIQMSearchKey1, dMCSWTISIQMSearchKey2,dMCSWTISIQMDateStamp,
                                     currentDemand, approvedDemand, totalDemand, totalApproved,currentPurchased,
                                     totalPurchased, currentReceived,totalReceived, lastBilled,totalBilled,workInProgress,stokeInHand) ;
 
