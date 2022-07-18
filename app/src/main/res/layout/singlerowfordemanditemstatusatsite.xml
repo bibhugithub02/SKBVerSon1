@@ -76,50 +76,53 @@
             android:textColor="#131313"
             android:textSize="16dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextNumber12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
+            android:gravity="center"
             android:hint="00000"
-            android:inputType="number"
             android:minHeight="48dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextNumber13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="108dp"
+            android:layout_marginLeft="112dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
+            android:gravity="center"
             android:hint="00000"
             android:inputType="number"
             android:minHeight="48dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextNumber14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="205dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
+            android:gravity="center"
             android:hint="00000"
             android:inputType="number"
             android:minHeight="48dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextNumber15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
+            android:layout_marginLeft="285dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
+            android:gravity="center"
             android:hint="00000"
             android:inputType="number"
             android:minHeight="48dp" />

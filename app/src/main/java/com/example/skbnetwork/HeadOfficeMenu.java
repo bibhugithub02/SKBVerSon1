@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class HeadOfficeMenu extends AppCompatActivity {
 
-    TextView AddItemToItemMaster, ListOfItemScreen, Quit;
+    TextView AddItemToItemMaster, ListOfItemScreen, PendingForApproval, Quit;
     TextView clientConfiguration;
 
     @Override
@@ -24,6 +24,7 @@ public class HeadOfficeMenu extends AppCompatActivity {
         AddItemToItemMaster = findViewById(R.id.textView1);
         ListOfItemScreen = findViewById(R.id.textView2);
         clientConfiguration = findViewById(R.id.textView3);
+        PendingForApproval = findViewById(R.id.textView4);
         Quit = findViewById(R.id.textView6);
 
         AddItemToItemMaster.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,15 @@ public class HeadOfficeMenu extends AppCompatActivity {
                 startActivity(i); ///Demo11072022
             }
         });
+
+        PendingForApproval.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HeadOfficeMenu.this, DemandPendingForHOApproval.class);
+                startActivity(i); ///Demo11072022
+            }
+        });
+
 
         Quit.setOnClickListener(new View.OnClickListener() {
             @Override

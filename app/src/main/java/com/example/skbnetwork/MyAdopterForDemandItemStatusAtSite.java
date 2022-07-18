@@ -31,11 +31,12 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
                                     @NonNull ModelClientSiteWorkTypeItemSubItemQuantityMaster model) {
 
         holder.itemDetails.setText(model.getdMCSWTISIQMItemCategory()+model.getdMCSWTISIQMSubItem());
-        holder.demandDetails.setInputType(model.getTotalDemand());
-        holder.demandDetails.setInputType(model.getTotalDemand());
-        holder.receivedQuantity.setInputType(model.getTotalReceived());
-        holder.billedQuantity.setInputType(model.getTotalBilled());
-        holder.inHandQuantity.setInputType(model.getStokeInHand());
+        holder.demandDetails.setText(String.valueOf(model.getTotalDemand()));
+        holder.demandDetails.setText(String.valueOf(model.getTotalDemand()));
+        holder.receivedQuantity.setText(String.valueOf(model.getTotalReceived()));
+        holder.billedQuantity.setText(String.valueOf(model.getTotalBilled()));
+        holder.inHandQuantity.setText(String.valueOf(model.getStokeInHand()));
+
     }
 
     @NonNull

@@ -209,6 +209,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
                     int currentDemand = Integer.parseInt(quantity.getText().toString());
                     String dMCSWTISIQMSearchKey1 = clientName +"_" +siteName+"_"+workType;
                     String dMCSWTISIQMSearchKey2 = clientName +"_" +siteName+"_"+workType+"_"+itemName+"_"+subCategoryDesc.getText().toString();
+                    String dMCSWTISIQMSearchKey3 = "";
 
                     String dMCSWTISIQMDateStamp = timeStamp;
                     int approvedDemand = 0;
@@ -227,7 +228,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
 
                     ModelClientSiteWorkTypeItemSubItemQuantityMaster obj = new ModelClientSiteWorkTypeItemSubItemQuantityMaster
                             (dMCSWTISIQMClientName,dMCSWTISIQMSiteName,dMCSWTISIQMWorkType,dMCSWTISIQMItemCategory,dMCSWTISIQMSubItem,
-                                    dMCSWTISIQMSearchKey1, dMCSWTISIQMSearchKey2,dMCSWTISIQMDateStamp,
+                                    dMCSWTISIQMSearchKey1, dMCSWTISIQMSearchKey2,dMCSWTISIQMSearchKey3,dMCSWTISIQMDateStamp,
                                     currentDemand, approvedDemand, totalDemand, totalApproved,currentPurchased,
                                     totalPurchased, currentReceived,totalReceived, lastBilled,totalBilled,workInProgress,stokeInHand) ;
 

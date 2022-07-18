@@ -9,6 +9,7 @@ public class ModelClientSiteWorkTypeItemSubItemQuantityMaster {
     String dMCSWTISIQMSubItem;
     String dMCSWTISIQMSearchKey1;
     String dMCSWTISIQMSearchKey2;
+    String dMCSWTISIQMSearchKey3;
     String dMCSWTISIQMDateStamp;
     int currentDemand;
     int approvedDemand;
@@ -28,12 +29,12 @@ public class ModelClientSiteWorkTypeItemSubItemQuantityMaster {
 
     public ModelClientSiteWorkTypeItemSubItemQuantityMaster(String dMCSWTISIQMClientName, String dMCSWTISIQMSiteName,
                                                             String dMCSWTISIQMWorkType, String dMCSWTISIQMItemCategory,
-                                                            String dMCSWTISIQMSubItem, String dMCSWTISIQMSearchKey1,
-                                                            String dMCSWTISIQMSearchKey2, String dMCSWTISIQMDateStamp,
-                                                            int currentDemand, int approvedDemand, int totalDemand,
-                                                            int totalApproved, int currentPurchased, int totalPurchased,
-                                                            int currentReceived, int totalReceived, int lastBilled,
-                                                            int totalBilled, int workInProgress, int stokeInHand) {
+                                                            String dMCSWTISIQMSubItem, String dMCSWTISIQMSearchKey1, String dMCSWTISIQMSearchKey2,
+                                                            String dMCSWTISIQMSearchKey3, String dMCSWTISIQMDateStamp, int currentDemand,
+                                                            int approvedDemand, int totalDemand, int totalApproved, int currentPurchased, int totalPurchased,
+                                                            int currentReceived, int totalReceived,
+                                                            int lastBilled, int totalBilled, int workInProgress,
+                                                            int stokeInHand) {
         this.dMCSWTISIQMClientName = dMCSWTISIQMClientName;
         this.dMCSWTISIQMSiteName = dMCSWTISIQMSiteName;
         this.dMCSWTISIQMWorkType = dMCSWTISIQMWorkType;
@@ -41,6 +42,7 @@ public class ModelClientSiteWorkTypeItemSubItemQuantityMaster {
         this.dMCSWTISIQMSubItem = dMCSWTISIQMSubItem;
         this.dMCSWTISIQMSearchKey1 = dMCSWTISIQMSearchKey1;
         this.dMCSWTISIQMSearchKey2 = dMCSWTISIQMSearchKey2;
+        this.dMCSWTISIQMSearchKey3 = dMCSWTISIQMSearchKey3;
         this.dMCSWTISIQMDateStamp = dMCSWTISIQMDateStamp;
         this.currentDemand = currentDemand;
         this.approvedDemand = approvedDemand;
@@ -66,6 +68,7 @@ public class ModelClientSiteWorkTypeItemSubItemQuantityMaster {
                 ", dMCSWTISIQMSubItem='" + dMCSWTISIQMSubItem + '\'' +
                 ", dMCSWTISIQMSearchKey1='" + dMCSWTISIQMSearchKey1 + '\'' +
                 ", dMCSWTISIQMSearchKey2='" + dMCSWTISIQMSearchKey2 + '\'' +
+                ", dMCSWTISIQMSearchKey3='" + dMCSWTISIQMSearchKey3 + '\'' +
                 ", dMCSWTISIQMDateStamp='" + dMCSWTISIQMDateStamp + '\'' +
                 ", currentDemand=" + currentDemand +
                 ", approvedDemand=" + approvedDemand +
@@ -136,6 +139,14 @@ public class ModelClientSiteWorkTypeItemSubItemQuantityMaster {
 
     public void setdMCSWTISIQMSearchKey2(String dMCSWTISIQMSearchKey2) {
         this.dMCSWTISIQMSearchKey2 = dMCSWTISIQMSearchKey2;
+    }
+
+    public String getdMCSWTISIQMSearchKey3() {
+        return dMCSWTISIQMSearchKey3;
+    }
+
+    public void setdMCSWTISIQMSearchKey3(String dMCSWTISIQMSearchKey3) {
+        this.dMCSWTISIQMSearchKey3 = dMCSWTISIQMSearchKey3;
     }
 
     public String getdMCSWTISIQMDateStamp() {

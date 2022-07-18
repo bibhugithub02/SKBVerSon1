@@ -19,6 +19,9 @@
         android:theme="@style/Theme.SKBNetwork"
         tools:targetApi="31">
         <activity
+            android:name=".DemandPendingForHOApproval"
+            android:exported="false" />
+        <activity
             android:name=".DemandItemStatusAtSite"
             android:exported="false" />
         <activity
