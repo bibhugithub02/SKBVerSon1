@@ -19,6 +19,15 @@
         android:theme="@style/Theme.SKBNetwork"
         tools:targetApi="31">
         <activity
+            android:name=".StoreMenu"
+            android:exported="false" />
+        <activity
+            android:name=".SiteOfficeMenu"
+            android:exported="false" />
+        <activity
+            android:name=".StoreReceivedItemFromVendor"
+            android:exported="false" />
+        <activity
             android:name=".DemandPendingForHOApproval"
             android:exported="false" />
         <activity

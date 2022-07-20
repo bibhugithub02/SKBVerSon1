@@ -51,10 +51,22 @@ public class SKBMainMenu extends AppCompatActivity {
         SiteOfficeMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerView.class);
+                Intent i = new Intent(SKBMainMenu.this, com.example.skbnetwork.SiteOfficeMenu.class);
                 startActivity(i); ///Demo11072022
             }
         });
+
+
+        StoreMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SKBMainMenu.this, StoreMenu.class);
+                startActivity(i); ///Demo11072022
+            }
+        });
+
+
+
 
         Quit.setOnClickListener(new View.OnClickListener() {
             @Override
