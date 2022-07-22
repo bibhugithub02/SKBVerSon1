@@ -38,6 +38,14 @@ public class SiteOfficeMenu extends AppCompatActivity {
             }
         });
 
+        raiseAdditionalDemand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
+                startActivity(i);
+            }
+        });
+
         quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

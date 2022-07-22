@@ -1,5 +1,6 @@
 package com.example.skbnetwork;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,10 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class DemandItemStatusAtSite extends AppCompatActivity {
 
@@ -21,6 +26,7 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
     MyAdopterForDemandItemStatusAtSite myAdopterForDemandItemStatusAtSite;
     RecyclerView recyclerView;
     Query query;
+    String searchkey;
 
 
 
@@ -50,12 +56,30 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
         clientNamev.setText("Client   : "+ clientName);
         siteNamev.setText("Site      : " +siteName);
         workTypev.setText("Work Type : "+workType);
-
+        searchkey = clientName.toString().trim() +"_"+siteName.toString().trim()+"_"+workType.toString().trim();
         recyclerView=findViewById(R.id.recyclerView06);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        query = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
+        query = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
+                .orderByChild("dMCSWTISIQMSearchKey1").equalTo(searchkey);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                   // Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         FirebaseRecyclerOptions<ModelClientSiteWorkTypeItemSubItemQuantityMaster> options =
                 new FirebaseRecyclerOptions.Builder<ModelClientSiteWorkTypeItemSubItemQuantityMaster>()

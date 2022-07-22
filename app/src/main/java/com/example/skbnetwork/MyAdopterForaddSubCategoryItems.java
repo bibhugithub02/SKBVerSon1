@@ -170,7 +170,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
 
                         {
                             if(snapshot.exists()){
-                                Toast.makeText(itemView.getContext(), "new Record found", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(itemView.getContext(), "Record found", Toast.LENGTH_SHORT).show();
                                 alreadyRecorded = "Y";
                             }else{
                                 alreadyRecorded = "N";
