@@ -73,7 +73,7 @@ public class MyAdopterForDemandPendingForHOApproval extends
             approval = itemView.findViewById(R.id.textView71);
             approvalForSite = itemView.findViewById(R.id.textView72);
 
-           approval.setOnClickListener(new View.OnClickListener() {
+            approval.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

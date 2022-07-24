@@ -19,6 +19,9 @@
         android:theme="@style/Theme.SKBNetwork"
         tools:targetApi="31">
         <activity
+            android:name=".ClientSiteWorkTypeRecyclerViewToReceiveQuantity"
+            android:exported="false" />
+        <activity
             android:name=".StoreMenu"
             android:exported="false" />
         <activity

@@ -38,10 +38,14 @@ public class SiteOfficeMenu extends AppCompatActivity {
             }
         });
 
+        // Add additional demand quantity
+
         raiseAdditionalDemand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
+                String action = "AQ";
+                Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
+                i.putExtra("menuname",action);
                 startActivity(i);
             }
         });

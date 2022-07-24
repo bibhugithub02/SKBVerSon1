@@ -28,9 +28,6 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
     Query query;
     String searchkey;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +68,7 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
                    // Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DemandItemStatusAtSite.this, "No Record to Display", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -86,7 +83,7 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
                         .setQuery(query, ModelClientSiteWorkTypeItemSubItemQuantityMaster.class)
                         .build();
 
-        myAdopterForDemandItemStatusAtSite = new MyAdopterForDemandItemStatusAtSite(options);
+        myAdopterForDemandItemStatusAtSite = new MyAdopterForDemandItemStatusAtSite(options, menuName);
         recyclerView.setAdapter(myAdopterForDemandItemStatusAtSite);
 
 
