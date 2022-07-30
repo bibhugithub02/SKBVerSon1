@@ -32,11 +32,12 @@
             android:layout_marginLeft="265dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="4dp"
-            android:padding="3dp"
             android:background="@android:drawable/button_onoff_indicator_off"
             android:gravity="center"
+            android:padding="3dp"
             android:text=""
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

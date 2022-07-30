@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_rounded"
+
     tools:context=".AddItemToItemMasterView">
 
     <TextView
@@ -59,7 +59,8 @@
         android:layout_height="27dp"
         android:layout_marginStart="72dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/bg_rounded_dark"
+        android:background="@drawable/bg_rounded_blue"
+        android:textColor="@color/white"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="A d d"
@@ -71,7 +72,8 @@
         android:layout_width="67dp"
         android:layout_height="27dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/bg_rounded_dark"
+        android:background="@drawable/bg_rounded_blue"
+        android:textColor="@color/white"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="Clear"

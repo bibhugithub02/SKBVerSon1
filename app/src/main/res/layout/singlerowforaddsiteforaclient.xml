@@ -28,15 +28,21 @@
         <TextView
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
-            android:layout_height="27dp"
+            android:layout_height="32dp"
             android:layout_marginLeft="265dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="4dp"
-            android:padding="3dp"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:gravity="center"
-            android:text="Add Work Type"
+            android:padding="3dp"
+            android:text="Work Type"
             android:textSize="16sp" />
+<!--            The below line was been replaced with next 2 lines (3 rd and 4th line) -->
+<!--        android:background="@android:drawable/button_onoff_indicator_off"-->
+<!--        android:background="@drawable/bg_rounded_blue"-->
+<!--        android:textColor="@color/white"-->
+
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

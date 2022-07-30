@@ -46,11 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="78dp"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:gravity="center"
-            android:hint="Approve"
+            android:text="Approve"
             android:padding="2dp"
-            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold|italic" />
 
@@ -61,12 +61,12 @@
             android:layout_marginStart="58dp"
             android:layout_marginTop="78dp"
             android:layout_toEndOf="@+id/textView71"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:gravity="center"
-            android:hint="Approve for Site"
+            android:text="Approve for Site"
             android:padding="2dp"
             android:textSize="16sp"
-            android:textColor="@color/black"
             android:textStyle="bold|italic" />
 
 

@@ -40,13 +40,24 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
         holder.siteName.setText(model.getdMAWTTWMCSiteName());
         holder.workType.setText(model.getdMAWTTWMCWorkTypeName());
 
+        //RQ - Request quantity , the initial Demand raised coming from Site menu
+        //AQ - Additional Quantity demand, coming from Site menu
+        //SIN - Stoke in Hand - Coming from Store Menu
+
         if (action1.equals("RQ")){
-        holder.addItemCategory.setText("Add Receive Quantity");
-        }else if (action1.equals("AQ")){
-            holder.addItemCategory.setText("Add Demand Quantity");
-        }else{
-            holder.addItemCategory.setText("No Action");
-        }
+            holder.addItemCategory.setText("Add Receive Quantity");
+            }else if (action1.equals("AQ")){
+                holder.addItemCategory.setText("Add Demand Quantity");
+            }else if (action1.equals("SIH")){
+                holder.addItemCategory.setText("Stoke View");
+            }else if (action1.equals("DI")){
+                holder.addItemCategory.setText("Issue Qty");
+            }else if (action1.equals("DR")){
+                holder.addItemCategory.setText("Return Qty");
+            }else
+            {
+                holder.addItemCategory.setText("No Action");
+            }
 
 
     }
@@ -78,7 +89,8 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                 @Override
                 public void onClick(View v) {
                     //Code to add the Category for Site
-                    String menuname = "sitemenu";
+                   if (action1.equals("AQ") || (action1.equals("RQ") )){
+
                     Intent i = new Intent(itemView.getContext(),DemandItemStatusAtSite.class );
                     // Parameter used when called from Site Menu Option
                     //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
@@ -87,6 +99,18 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                     i.putExtra("sitename",siteName.getText().toString());
                     i.putExtra("worktype",workType.getText().toString());
                     clientName.getContext().startActivity(i);
+                   }
+
+                    if ((action1.equals("SIH")) || (action1.equals("DI")) || (action1.equals("DR"))){
+                       Intent stokeInHand = new Intent(itemView.getContext(),DemandItemStatusAtSite.class );
+                        // Parameter used when called from Store Menu Option
+                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+                        stokeInHand.putExtra("menuname",action1);
+                        stokeInHand.putExtra("clientname",clientName.getText().toString());
+                        stokeInHand.putExtra("sitename",siteName.getText().toString());
+                        stokeInHand.putExtra("worktype",workType.getText().toString());
+                        clientName.getContext().startActivity(stokeInHand);
+                    }
 
                 }
             });

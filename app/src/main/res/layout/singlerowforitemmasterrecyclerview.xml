@@ -43,8 +43,13 @@
             android:layout_marginLeft="49dp"
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@+id/imageView2"
-            android:background="@android:drawable/button_onoff_indicator_off"
-            android:padding="2dp"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
             android:text="Add Items"
             android:visibility="invisible" />
 
@@ -55,7 +60,8 @@
             android:layout_marginLeft="05dp"
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@+id/textView10"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:padding="2dp"
             android:text="View Sub Items"
             android:visibility="invisible" />
@@ -76,7 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
             android:layout_marginTop="30dp"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:padding="2dp"
             android:text="Delete Item"
             android:visibility="invisible" />

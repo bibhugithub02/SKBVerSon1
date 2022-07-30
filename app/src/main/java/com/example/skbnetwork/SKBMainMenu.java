@@ -32,7 +32,8 @@ public class SKBMainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(SKBMainMenu.this, com.example.skbnetwork.HeadOfficeMenu.class);
+               // Intent i = new Intent(SKBMainMenu.this, com.example.skbnetwork.HeadOfficeMenu.class);
+                Intent i = new Intent(SKBMainMenu.this, LoginScreenOne.class);
                 startActivity(i);
 
             }

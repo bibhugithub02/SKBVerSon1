@@ -32,10 +32,10 @@
             android:id="@+id/textView63"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="5dp"
-            android:hint="Demand"
+            android:hint="DMD"
             android:padding="2dp"
             android:textColor="#131313"
             android:textSize="16dp" />
@@ -44,10 +44,10 @@
             android:id="@+id/textView64"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="105dp"
+            android:layout_marginLeft="85dp"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="5dp"
-            android:hint="Received"
+            android:hint="RCV"
             android:padding="2dp"
             android:textColor="#131313"
             android:textSize="16dp" />
@@ -56,10 +56,10 @@
             android:id="@+id/textView65"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="150dp"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="5dp"
-            android:hint="  Billed  "
+            android:hint="Billed"
             android:padding="2dp"
             android:textColor="#131313"
             android:textSize="16dp" />
@@ -80,7 +80,7 @@
             android:id="@+id/editTextNumber12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
@@ -92,7 +92,7 @@
             android:id="@+id/editTextNumber13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="112dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
@@ -105,7 +105,7 @@
             android:id="@+id/editTextNumber14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
+            android:layout_marginLeft="150dp"
             android:layout_marginTop="55dp"
             android:layout_marginBottom="2dp"
             android:ems="3"
@@ -156,10 +156,11 @@
             android:layout_marginLeft="285dp"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="5dp"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:gravity="center"
-            android:padding="2dp"
             android:hint="Add Qty"
+            android:padding="2dp"
             android:textSize="16sp"
             android:textStyle="bold|italic"
             android:visibility="invisible" />
@@ -170,6 +171,31 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textView92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:hint="WIP"
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/editTextNumber17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="2dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:inputType="number"
+            android:minHeight="48dp" />
 
 
     </RelativeLayout>

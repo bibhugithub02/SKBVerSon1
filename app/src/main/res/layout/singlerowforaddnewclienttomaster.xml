@@ -28,13 +28,18 @@
         <TextView
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
-            android:layout_height="27dp"
+            android:layout_height="32dp"
             android:layout_marginLeft="265dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="4dp"
-            android:padding="3dp"
-            android:background="@android:drawable/button_onoff_indicator_off"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
             android:gravity="center"
+
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="Add Site"
             android:textSize="16sp" />
 
