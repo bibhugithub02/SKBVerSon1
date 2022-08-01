@@ -114,14 +114,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
                     //addition else create one record and update the new quantity.
 
                     getDemandQuantityForTheSubItem();
-//                    Intent i = new Intent(subCategoryDesc.getContext(), demandQuantity.class);
-//                    i.putExtra("clientname",clientName);
-//                    i.putExtra("sitename",siteName);
-//                    i.putExtra("worktype",workType);
-//                    i.putExtra("category",itemName);
-//                    i.putExtra("subcategory",subCategoryDesc.getText().toString());
-//                    subCategoryDesc.getContext().startActivity(i);
-//                    Toast.makeText(subCategoryDesc.getContext(), "Yet to be coded with ", Toast.LENGTH_SHORT).show();
+
                 }
             });
         }
@@ -148,50 +141,39 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
 
                     }else{
                         alreadyRecorded = "N";
-                        checkExistanceOfRecord();
-                        if(alreadyRecorded == "N") {
-                            writeToModelClientSiteWorkTypeItemSubItemQuantityMaster();
-                        }
+                        //checkExistanceOfRecord();
+
+                      /////////////////////////////////////////
+                      FirebaseDatabase db = FirebaseDatabase.getInstance();
+                      DatabaseReference dbr = db.getReference("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
+                      String Search = clientName +"_" +siteName+"_"+workType+"_"+itemName+"_"+subCategoryDesc.getText().toString().trim();
+                      Query query= dbr.orderByChild("dMCSWTISIQMSearchKey2").equalTo(Search);
+
+                      query.addListenerForSingleValueEvent(new ValueEventListener() {
+                          @Override
+                          public void onDataChange(@NonNull DataSnapshot snapshot)
+                          {
+                              if(snapshot.exists()){
+                                  Toast.makeText(itemView.getContext(), "Record found", Toast.LENGTH_SHORT).show();
+                                  alreadyRecorded = "Y";
+                              }else{
+                                  alreadyRecorded = "N";
+                                  writeToModelClientSiteWorkTypeItemSubItemQuantityMaster();
+                              }
+
+                          }
+                          @Override
+                          public void onCancelled(@NonNull DatabaseError error) {
+
+                          }
+                      });
 
                     }
                 }
 
                 private void checkExistanceOfRecord() {
 
-                    FirebaseDatabase db = FirebaseDatabase.getInstance();
-                    DatabaseReference dbr = db.getReference("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
-                    String Search = clientName +"_" +siteName+"_"+workType+"_"+itemName+"_"+subCategoryDesc.getText().toString();
-                    Query query= dbr.orderByChild("dMCSWTISIQMSearchKey2").
-                            equalTo(Search);
-
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot)
-
-                        {
-                            if(snapshot.exists()){
-                                Toast.makeText(itemView.getContext(), "Record found", Toast.LENGTH_SHORT).show();
-                                alreadyRecorded = "Y";
-                            }else{
-                                alreadyRecorded = "N";
-                            }
-
-                            for(DataSnapshot ds: snapshot.getChildren()){
-                                data = ds.getValue(ModelClientSiteWorkTypeItemSubItemQuantityMaster.class);
-//                                if (data.getCurrentDemand()>=0){
-//                                    alreadyRecorded = "Y";
-//                                    Toast.makeText(itemView.getContext(), "Record found", Toast.LENGTH_SHORT).show();
-//                                }else{
-//                                    alreadyRecorded = "N";
-//                                }
-
-                            }
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                //Made this as inline code to avoid confusion
 
                 }
 

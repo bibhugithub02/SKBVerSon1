@@ -37,14 +37,17 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
-        android:background="@android:drawable/button_onoff_indicator_off"
+        android:background="@drawable/bg_rounded_blue"
         android:gravity="center"
+        android:textColor="@color/white"
         android:padding="5dp"
         android:text="Add Sub Item"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <!--    android:background="@android:drawable/button_onoff_indicator_off"-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView1"

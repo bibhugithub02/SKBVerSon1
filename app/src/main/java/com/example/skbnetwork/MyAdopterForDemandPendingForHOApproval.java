@@ -12,8 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -76,37 +80,90 @@ public class MyAdopterForDemandPendingForHOApproval extends
             approval.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    FirebaseDatabase db = FirebaseDatabase.getInstance();
-                    DatabaseReference dbr = db.getReference("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
-
-                    // dbr.child(searchString).child("dMCSWTISIQMSearchKey3").setValue("100");
-
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("totalDemand", totalqty);
-                    hashMap.put("totalApproved", totalqty);
-
-                    hashMap.put("currentDemand", 0);
-                    hashMap.put("dMCSWTISIQMSearchKey3", "It is working for now");
-
-                    dbr.child(sea).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
-                        @Override
-                        public void onSuccess(Object o) {
-                            Toast.makeText(approval.getContext(), "Update works", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+                    updateMasterApprove();
                 }
             });
-
-
 
             approvalForSite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    FirebaseDatabase db = FirebaseDatabase.getInstance();
+                    DatabaseReference dbr = db.getReference("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
+
+                    String sea1 = siteName.getText().toString();
+                    Query query = FirebaseDatabase.getInstance().getReference().
+                             child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
+                            .orderByChild("dMCSWTISIQMSearchKey1").equalTo(sea1);
+
+
+                     query.addListenerForSingleValueEvent(new ValueEventListener() {
+                         @Override
+                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                             if (snapshot.getValue() != null){
+
+                                 for(DataSnapshot ds : snapshot.getChildren()){
+
+                                     if((ds.child("dMCSWTISIQMSearchKey1").getValue(String.class).equals(sea1) &&
+                                             (ds.child("currentDemand").getValue(Integer.class)>0)))
+                                     {
+                                         int totalQtyApproved = ds.child("totalDemand").getValue(Integer.class)+
+                                                 ds.child("currentDemand").getValue(Integer.class);
+                                         String sea2 = ds.child("dMCSWTISIQMSearchKey2").getValue(String.class);
+
+                                         HashMap hashMap = new HashMap();
+                                         hashMap.put("totalDemand", totalQtyApproved);
+                                         hashMap.put("totalApproved", totalQtyApproved);
+
+                                         hashMap.put("currentDemand", 0);
+                                         hashMap.put("dMCSWTISIQMSearchKey3", "It is working for now");
+
+                                         dbr.child(sea2).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                                             @Override
+                                             public void onSuccess(Object o) {
+                                                 //  Toast.makeText(approval.getContext(), "Update works", Toast.LENGTH_SHORT).show();
+                                             }
+                                         });
+                                     }
+
+                                 }
+
+                             }else{
+                                 Toast.makeText(siteName.getContext(), "No record to Process", Toast.LENGTH_SHORT).show();
+                             }
+                         }
+
+                         @Override
+                         public void onCancelled(@NonNull DatabaseError error) {
+
+                         }
+                     });
 
                 }
             });
         }
+
+
+        private void updateMasterApprove() {
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            DatabaseReference dbr = db.getReference("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
+
+            // dbr.child(searchString).child("dMCSWTISIQMSearchKey3").setValue("100");
+
+            HashMap hashMap = new HashMap();
+            hashMap.put("totalDemand", totalqty);
+            hashMap.put("totalApproved", totalqty);
+
+            hashMap.put("currentDemand", 0);
+            hashMap.put("dMCSWTISIQMSearchKey3", "It is working for now");
+
+            dbr.child(sea).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                @Override
+                public void onSuccess(Object o) {
+                    Toast.makeText(approval.getContext(), "Update works", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
+
+
 }

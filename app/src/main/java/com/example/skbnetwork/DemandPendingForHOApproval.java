@@ -43,7 +43,7 @@ public class DemandPendingForHOApproval extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue() != null){
-                    Toast.makeText(DemandPendingForHOApproval.this, "Record available for approval", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DemandPendingForHOApproval.this, "Record available for approval", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(DemandPendingForHOApproval.this, "No Record Available for approval", Toast.LENGTH_SHORT).show();
                 }
