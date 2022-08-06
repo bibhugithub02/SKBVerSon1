@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,7 +55,9 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                 holder.addItemCategory.setText("Issue Qty");
             }else if (action1.equals("DR")){
                 holder.addItemCategory.setText("Return Qty");
-            }else
+            }else if (action1.equals("PFS")){
+            holder.addItemCategory.setText("Pur Status");
+        }else
             {
                 holder.addItemCategory.setText("No Action");
             }
@@ -110,6 +113,20 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                         stokeInHand.putExtra("sitename",siteName.getText().toString());
                         stokeInHand.putExtra("worktype",workType.getText().toString());
                         clientName.getContext().startActivity(stokeInHand);
+                    }
+
+
+                    if (action1.equals("PFS")) {
+                        Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
+                        Intent stokeInHand = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
+                        // Parameter used when called from Store Menu Option
+                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+                        stokeInHand.putExtra("menuname",action1);
+                        stokeInHand.putExtra("clientname",clientName.getText().toString());
+                        stokeInHand.putExtra("sitename",siteName.getText().toString());
+                        stokeInHand.putExtra("worktype",workType.getText().toString());
+                        clientName.getContext().startActivity(stokeInHand);
+
                     }
 
                 }

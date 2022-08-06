@@ -86,7 +86,7 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
     private void processSearch(String searchText) {
 
         query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster")
-                .orderByChild("dMAWTTWMClientName").startAt(searchText).endAt(searchText+"\uf8ff");
+                .orderByChild("dMAWTTWMCClient_Site_WorkType").startAt(searchText).endAt(searchText+"\uf8ff");
 
         FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options =
                 new FirebaseRecyclerOptions.Builder<ModelAddWorkTypeToWorkMaster>()

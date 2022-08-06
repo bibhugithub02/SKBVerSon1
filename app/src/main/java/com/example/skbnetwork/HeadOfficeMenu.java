@@ -11,7 +11,8 @@ import android.widget.TextView;
 public class HeadOfficeMenu extends AppCompatActivity {
 
     TextView AddItemToItemMaster, ListOfItemScreen, PendingForApproval, Quit;
-    TextView clientConfiguration;
+    TextView clientConfiguration, purchaseMenu;
+    String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class HeadOfficeMenu extends AppCompatActivity {
         ListOfItemScreen = findViewById(R.id.textView2);
         clientConfiguration = findViewById(R.id.textView3);
         PendingForApproval = findViewById(R.id.textView4);
+        purchaseMenu = findViewById(R.id.textView5);
         Quit = findViewById(R.id.textView6);
 
         AddItemToItemMaster.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,18 @@ public class HeadOfficeMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(HeadOfficeMenu.this, DemandPendingForHOApproval.class);
                 startActivity(i);
+            }
+        });
+
+
+        purchaseMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                action = "PFS"; // PFS - Purchase for that particular Site
+                Intent i = new Intent(HeadOfficeMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
+                i.putExtra("menuname",action);
+                startActivity(i);
+
             }
         });
 

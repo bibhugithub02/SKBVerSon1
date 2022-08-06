@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,22 +20,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class DemandItemStatusAtSite extends AppCompatActivity {
+public class PurchaseItemStatusAtSite extends AppCompatActivity {
+
 
 
     String menuName, clientName, siteName, workType;
     TextView menuNamev, clientNamev, siteNamev, workTypev;
 
-    MyAdopterForDemandItemStatusAtSite myAdopterForDemandItemStatusAtSite;
+    MyAdopterForPurchaseItemStatusAtSite myAdopterForPurchaseItemStatusAtSite;
     RecyclerView recyclerView;
     Query query;
     String searchkey;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demand_item_status_at_site);
-
+        setContentView(R.layout.activity_purchase_item_status_at_site);
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -44,17 +48,17 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
         siteName = getIntent().getStringExtra("sitename").toString();
         workType = getIntent().getStringExtra("worktype").toString();
 
-        menuNamev = findViewById(R.id.textView61);
-        clientNamev = findViewById(R.id.textView58);
-        siteNamev = findViewById(R.id.textView59);
-        workTypev = findViewById(R.id.textView60);
+        menuNamev = findViewById(R.id.textView109);
+        clientNamev = findViewById(R.id.textView111);
+        siteNamev = findViewById(R.id.textView112);
+        workTypev = findViewById(R.id.textView113);
 
-        menuNamev.setText("Site Menu");
+        menuNamev.setText("Purchase Menu");
         clientNamev.setText("Client   : "+ clientName);
         siteNamev.setText("Site      : " +siteName);
         workTypev.setText("Work Type : "+workType);
         searchkey = clientName.toString().trim() +"_"+siteName.toString().trim()+"_"+workType.toString().trim();
-        recyclerView=findViewById(R.id.recyclerView06);
+        recyclerView=findViewById(R.id.recyclerView07);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -65,10 +69,10 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                   // Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(PurchaseItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    Toast.makeText(DemandItemStatusAtSite.this, "No Record to Display", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PurchaseItemStatusAtSite.this, "No Record to Display", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -83,8 +87,8 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
                         .setQuery(query, ModelClientSiteWorkTypeItemSubItemQuantityMaster.class)
                         .build();
 
-        myAdopterForDemandItemStatusAtSite = new MyAdopterForDemandItemStatusAtSite(options, menuName);
-        recyclerView.setAdapter(myAdopterForDemandItemStatusAtSite);
+        myAdopterForPurchaseItemStatusAtSite = new MyAdopterForPurchaseItemStatusAtSite(options, menuName);
+        recyclerView.setAdapter(myAdopterForPurchaseItemStatusAtSite);
 
 
     }
@@ -92,14 +96,56 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        myAdopterForDemandItemStatusAtSite.startListening();
+        myAdopterForPurchaseItemStatusAtSite.startListening();
     }
 
 
     @Override
     protected void onStop() {
         super.onStop();
-        //myAdopterForDemandItemStatusAtSite.startListening();
+        //myAdopterForPurchaseItemStatusAtSite.startListening();
     }
 
+    //We need to decide and code for this search option
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.searchoption, menu);
+//        MenuItem item = menu.findItem(R.id.app_bar_search);
+//
+//        SearchView searchView = (SearchView) item.getActionView();
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                processSearch(query.toUpperCase());
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                processSearch(newText.toUpperCase());
+//                return false;
+//            }
+//        });
+//
+//        return super.onCreateOptionsMenu(menu);
+//
+//    }
+//
+//    private void processSearch(String searchText) {
+//
+//        query = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
+//                .orderByChild("dMCSWTISIQMSearchKey1").startAt(searchText).endAt(searchText+"\uf8ff");
+//
+//        FirebaseRecyclerOptions<ModelClientSiteWorkTypeItemSubItemQuantityMaster> options =
+//                new FirebaseRecyclerOptions.Builder<ModelClientSiteWorkTypeItemSubItemQuantityMaster>()
+//                        .setQuery(query, ModelClientSiteWorkTypeItemSubItemQuantityMaster.class)
+//                        .build();
+//
+//        myAdopterForPurchaseItemStatusAtSite = new MyAdopterForPurchaseItemStatusAtSite(options, menuName);
+//        myAdopterForPurchaseItemStatusAtSite.startListening();
+//        recyclerView.setAdapter(myAdopterForPurchaseItemStatusAtSite);
+//
+//    }
 }

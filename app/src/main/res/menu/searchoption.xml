@@ -5,11 +5,11 @@
     >
     <item
         android:id="@+id/app_bar_search"
+        android:actionViewClass="android.widget.SearchView"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search"
-        app:actionViewClass="android.widget.SearchView"
         android:titleCondensed="Search Data"
+        app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always"
-        android:actionViewClass="android.widget.SearchView"
         tools:ignore="AppCompatResource" />
 </menu>

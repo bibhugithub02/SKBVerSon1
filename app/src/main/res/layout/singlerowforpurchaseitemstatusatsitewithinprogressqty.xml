@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:visibility="visible"
+    app:cardElevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@color/ic_launcher_background"
+        android:elevation="@dimen/cardview_compat_inset_shadow"
+        android:padding="2dp">
+
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Item Category : "
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:hint="DMD"
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:hint="PUR"
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:hint="RCV"
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Pen PUR"
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/editTextNumber12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="2dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/editTextNumber13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="2dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/editTextNumber14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="2dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/editTextNumber15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="2dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/textView89"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="5dp"
+            android:text="Demand Pending Approval:" />
+
+        <TextView
+            android:id="@+id/editTextNumber16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextNumber13"
+            android:layout_marginLeft="205dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="-21dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/textView90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_rounded_blue"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:hint="Add Pur"
+            android:padding="2dp"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView91"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textView92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:hint="PIP"
+            android:padding="2dp"
+            android:textColor="#131313"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/editTextNumber17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="2dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

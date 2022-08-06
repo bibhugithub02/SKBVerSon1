@@ -19,13 +19,14 @@
         android:theme="@style/Theme.SKBNetwork"
         tools:targetApi="31">
         <activity
+            android:name=".PurchaseItemStatusAtSite"
+            android:exported="false" />
+        <activity
             android:name=".OtpReceived"
             android:exported="false" />
         <activity
             android:name=".LoginScreenOne"
             android:exported="false" />
-
-
         <activity
             android:name=".ClientSiteWorkTypeRecyclerViewToReceiveQuantity"
             android:exported="false" />
@@ -73,16 +74,13 @@
             android:exported="false" />
         <activity
             android:name=".SKBMainMenu"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

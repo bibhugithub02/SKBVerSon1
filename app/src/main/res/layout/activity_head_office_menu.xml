@@ -122,7 +122,7 @@
                 android:paddingTop="20dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="20dp"
-                android:text="Open Menu Option-03"
+                android:text="Purchase Menu"
                 android:textSize="20sp" />
 
             <TextView

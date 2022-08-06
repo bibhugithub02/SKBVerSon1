@@ -30,6 +30,7 @@
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_login_screen_one.xml" value="0.25" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_main.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_otp_received.xml" value="0.25317028985507245" />
+        <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_purchase_item_status_at_site.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_siteoffice_menu.xml" value="0.26403985507246375" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_skbmain_menu.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/activity_store_menu.xml" value="0.19429347826086957" />
@@ -46,6 +47,7 @@
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/singlerowfordemanditemstatusatsitewithinprogressqty.xml" value="0.14375" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/singlerowfordemandpendingforhoapproval.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/singlerowforitemmasterrecyclerview.xml" value="0.23324275362318841" />
+        <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/layout/singlerowforpurchaseitemstatusatsitewithinprogressqty.xml" value="0.1461499493414387" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/menu/searchoption.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1535" />
         <entry key="..\:/Users/bibhu/AndroidStudioProjects/SKBNetwork/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />

@@ -1,6 +1,5 @@
 package com.example.skbnetwork;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,33 +19,29 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MyAdopterForDemandPendingForHOApproval extends RecyclerView.Adapter<MyAdopterForDemandPendingForHOApproval.myViewHolder> {
+public class MyAdopterForDemandPendingForHOApprovalbackup extends
+        FirebaseRecyclerAdapter<ModelClientSiteWorkTypeItemSubItemQuantityMaster,
+                MyAdopterForDemandPendingForHOApprovalbackup.myViewHolder> {
 
-    Context context;
-    ArrayList<ModelClientSiteWorkTypeItemSubItemQuantityMaster> alist;
+    //int totalQty;
+    String searchString;
+    //ActivityUpdateDataBinding binding;
 
-    public MyAdopterForDemandPendingForHOApproval(ArrayList<ModelClientSiteWorkTypeItemSubItemQuantityMaster> alist) {
-
-        this.context = context;
-        this.alist = alist;
-
-    }
-
-    @NonNull
-    @Override
-    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.singlerowfordemandpendingforhoapproval, parent, false);
-        return new myViewHolder(view);
+    /**
+     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
+     * {@link FirebaseRecyclerOptions} for configuration options.
+     *
+     * @param options
+     */
+    public MyAdopterForDemandPendingForHOApprovalbackup(@NonNull FirebaseRecyclerOptions<ModelClientSiteWorkTypeItemSubItemQuantityMaster> options) {
+        super(options);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-
-        ModelClientSiteWorkTypeItemSubItemQuantityMaster model = alist.get(position);
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int position,
+                                    @NonNull ModelClientSiteWorkTypeItemSubItemQuantityMaster model) {
 
         holder.siteName.setText(model.getdMCSWTISIQMSearchKey1());
         holder.itemName.setText(model.getdMCSWTISIQMSubItem()+"_" + model.getdMCSWTISIQMItemCategory());
@@ -55,14 +52,15 @@ public class MyAdopterForDemandPendingForHOApproval extends RecyclerView.Adapter
         //holder.sea = model.getdMCSWTISIQMSearchKey3().toString();
         holder.sea = model.getdMCSWTISIQMSearchKey1() +"_" + model.getdMCSWTISIQMItemCategory() +"_" + model.getdMCSWTISIQMSubItem();
 
-
     }
 
+    @NonNull
     @Override
-    public int getItemCount() {
-        return alist.size();
+    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).
+                inflate(R.layout.singlerowfordemandpendingforhoapproval, parent, false);
+        return new myViewHolder(view);
     }
-
 
     class myViewHolder extends RecyclerView.ViewHolder{
 
@@ -94,51 +92,51 @@ public class MyAdopterForDemandPendingForHOApproval extends RecyclerView.Adapter
 
                     String sea1 = siteName.getText().toString();
                     Query query = FirebaseDatabase.getInstance().getReference().
-                            child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
+                             child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
                             .orderByChild("dMCSWTISIQMSearchKey1").equalTo(sea1);
 
 
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.getValue() != null){
+                     query.addListenerForSingleValueEvent(new ValueEventListener() {
+                         @Override
+                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                             if (snapshot.getValue() != null){
 
-                                for(DataSnapshot ds : snapshot.getChildren()){
+                                 for(DataSnapshot ds : snapshot.getChildren()){
 
-                                    if((ds.child("dMCSWTISIQMSearchKey1").getValue(String.class).equals(sea1) &&
-                                            (ds.child("currentDemand").getValue(Integer.class)>0)))
-                                    {
-                                        int totalQtyApproved = ds.child("totalDemand").getValue(Integer.class)+
-                                                ds.child("currentDemand").getValue(Integer.class);
-                                        String sea2 = ds.child("dMCSWTISIQMSearchKey2").getValue(String.class);
+                                     if((ds.child("dMCSWTISIQMSearchKey1").getValue(String.class).equals(sea1) &&
+                                             (ds.child("currentDemand").getValue(Integer.class)>0)))
+                                     {
+                                         int totalQtyApproved = ds.child("totalDemand").getValue(Integer.class)+
+                                                 ds.child("currentDemand").getValue(Integer.class);
+                                         String sea2 = ds.child("dMCSWTISIQMSearchKey2").getValue(String.class);
 
-                                        HashMap hashMap = new HashMap();
-                                        hashMap.put("totalDemand", totalQtyApproved);
-                                        hashMap.put("totalApproved", totalQtyApproved);
+                                         HashMap hashMap = new HashMap();
+                                         hashMap.put("totalDemand", totalQtyApproved);
+                                         hashMap.put("totalApproved", totalQtyApproved);
 
-                                        hashMap.put("currentDemand", 0);
-                                        hashMap.put("dMCSWTISIQMSearchKey3", "It is working for now");
+                                         hashMap.put("currentDemand", 0);
+                                         hashMap.put("dMCSWTISIQMSearchKey3", "It is working for now");
 
-                                        dbr.child(sea2).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
-                                            @Override
-                                            public void onSuccess(Object o) {
-                                                //  Toast.makeText(approval.getContext(), "Update works", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                                    }
+                                         dbr.child(sea2).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                                             @Override
+                                             public void onSuccess(Object o) {
+                                                 //  Toast.makeText(approval.getContext(), "Update works", Toast.LENGTH_SHORT).show();
+                                             }
+                                         });
+                                     }
 
-                                }
+                                 }
 
-                            }else{
-                                Toast.makeText(siteName.getContext(), "No record to Process", Toast.LENGTH_SHORT).show();
-                            }
-                        }
+                             }else{
+                                 Toast.makeText(siteName.getContext(), "No record to Process", Toast.LENGTH_SHORT).show();
+                             }
+                         }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                         @Override
+                         public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
+                         }
+                     });
 
                 }
             });
@@ -166,5 +164,6 @@ public class MyAdopterForDemandPendingForHOApproval extends RecyclerView.Adapter
             });
         }
     }
+
 
 }
