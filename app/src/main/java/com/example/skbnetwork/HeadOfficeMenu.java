@@ -70,9 +70,7 @@ public class HeadOfficeMenu extends AppCompatActivity {
         purchaseMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                action = "PFS"; // PFS - Purchase for that particular Site
-                Intent i = new Intent(HeadOfficeMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menuname",action);
+                Intent i = new Intent(HeadOfficeMenu.this, PurchaseMenu.class);
                 startActivity(i);
 
             }

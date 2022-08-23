@@ -28,10 +28,10 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
     }
 
     public MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity
-            (FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options, String action) {
+            (FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options, String menuOption) {
         super(options);
 
-        action1 = action;
+        action1 = menuOption;
 
     }
 
@@ -56,7 +56,11 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
             }else if (action1.equals("DR")){
                 holder.addItemCategory.setText("Return Qty");
             }else if (action1.equals("PFS")){
-            holder.addItemCategory.setText("Pur Status");
+                holder.addItemCategory.setText("Pur Status");
+            }else if (action1.equals("PPFS")){
+                holder.addItemCategory.setText("Pen Purchase");
+            }else if (action1.equals("LPFS")){
+                holder.addItemCategory.setText("List Items");
         }else
             {
                 holder.addItemCategory.setText("No Action");
@@ -115,10 +119,40 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                         clientName.getContext().startActivity(stokeInHand);
                     }
 
+                    // Below code is for Purchase Menu, get the purchase status for a site(PFS)
+
 
                     if (action1.equals("PFS")) {
                         Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
                         Intent stokeInHand = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
+                        // Parameter used when called from Store Menu Option
+                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+                        stokeInHand.putExtra("menuname",action1);
+                        stokeInHand.putExtra("clientname",clientName.getText().toString());
+                        stokeInHand.putExtra("sitename",siteName.getText().toString());
+                        stokeInHand.putExtra("worktype",workType.getText().toString());
+                     //   clientName.getContext().startActivity(stokeInHand);
+
+                    }
+
+                    // Below code is for Purchase Menu, get the purchase pending for a site(PPFS)
+
+                    if (action1.equals("PPFS")) {
+                        Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
+                        Intent stokeInHand = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
+                        // Parameter used when called from Store Menu Option
+                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+                        stokeInHand.putExtra("menuname",action1);
+                        stokeInHand.putExtra("clientname",clientName.getText().toString());
+                        stokeInHand.putExtra("sitename",siteName.getText().toString());
+                        stokeInHand.putExtra("worktype",workType.getText().toString());
+                      //  clientName.getContext().startActivity(stokeInHand);
+
+                    }
+
+                    if (action1.equals("LPFS")) {
+                        Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
+                        Intent stokeInHand = new Intent(itemView.getContext(),ListOfItemforClientWiseSiteWiseWorkTypeWise.class );
                         // Parameter used when called from Store Menu Option
                         //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
                         stokeInHand.putExtra("menuname",action1);

@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class SKBMainMenu extends AppCompatActivity {
 
-    TextView CongigurationOption, HeadOfficeMenu, SiteOfficeMenu, StoreMenu, OpenMenu, Quit;
-
+    TextView CongigurationOption, HeadOfficeMenu, SiteOfficeMenu, StoreMenu, StokeInHand, Quit;
+    String menuName, clientSiteName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class SKBMainMenu extends AppCompatActivity {
         HeadOfficeMenu = findViewById(R.id.textView2);
         SiteOfficeMenu = findViewById(R.id.textView3);
         StoreMenu = findViewById(R.id.textView4);
-        OpenMenu = findViewById(R.id.textView5);
+        StokeInHand = findViewById(R.id.textView5);
         Quit = findViewById(R.id.textView6);
 
         //Set the orientation to Portrait for this screen
@@ -32,9 +32,8 @@ public class SKBMainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               // Intent i = new Intent(SKBMainMenu.this, com.example.skbnetwork.HeadOfficeMenu.class);
-                Intent i = new Intent(SKBMainMenu.this, LoginScreenOne.class);
-                startActivity(i); //NotDeliveredOn1stAug2022
+              Intent i = new Intent(SKBMainMenu.this, ConfigurationMenu.class);  // Login screen for OTP
+              startActivity(i); //NotDeliveredOn1stAug2022
 
             }
         });
@@ -52,7 +51,11 @@ public class SKBMainMenu extends AppCompatActivity {
         SiteOfficeMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuName="MAM";
+                clientSiteName="";
                 Intent i = new Intent(SKBMainMenu.this, com.example.skbnetwork.SiteOfficeMenu.class);
+                i.putExtra("menu",menuName);
+                i.putExtra("clientsitename",clientSiteName);
                 startActivity(i);
             }
         });
@@ -60,10 +63,30 @@ public class SKBMainMenu extends AppCompatActivity {
         StoreMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuName="MAM";
+                clientSiteName="";
                 Intent i = new Intent(SKBMainMenu.this, StoreMenu.class);
+                i.putExtra("menu",menuName);
+                i.putExtra("clientsitename",clientSiteName);
                 startActivity(i); //otDeliveredOn1stAug2022
             }
         });
+
+        StokeInHand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String action = "SIH";
+                menuName = "MAM";
+                clientSiteName="";
+                Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",action);
+                i.putExtra("clientsitename",clientSiteName);
+                startActivity(i);
+
+            }
+        });
+
 
         Quit.setOnClickListener(new View.OnClickListener() {
             @Override

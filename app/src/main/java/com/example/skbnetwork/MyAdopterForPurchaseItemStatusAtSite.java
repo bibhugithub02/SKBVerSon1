@@ -28,7 +28,7 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
      */
     public MyAdopterForPurchaseItemStatusAtSite(@NonNull FirebaseRecyclerOptions<ModelClientSiteWorkTypeItemSubItemQuantityMaster> options, String menuName) {
         super(options);
-        action = "";
+        action = menuName;
 
     }
 
@@ -42,10 +42,14 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
         // Get the total quantity received and then add the new receive and display that
         // Total receive should be less than DMD and equals to SIH + WIP + Bill
         // holder.receivedQuantity.setText(String.valueOf(model.getCurrentReceived()));
+        holder.purchaseQuantity.setText(String.valueOf(model.getTotalPurchased()));
+        //Demand >= Purchase >= Received
+        //Purchase = Purchase in Pipe line  + Purchase Pending
+
         holder.receivedQuantity.setText(String.valueOf(model.getTotalReceived()));
-        holder.billedQuantity.setText(String.valueOf(model.getTotalBilled()));
-        holder.inHandQuantity.setText(String.valueOf(model.getStokeInHand()));
-        holder.inProgressQty.setText(String.valueOf(model.getWorkInProgress()));
+        holder.inProgressPurchaseQty.setText(String.valueOf(model.getCurrentPurchased()));
+
+        holder.pendingPurchaseQuantity.setText(String.valueOf(model.getTotalPurchased()-model.getCurrentPurchased()));
         holder.demandPendingApproval.setText(String.valueOf(model.getCurrentDemand()).toString().trim());
         holder.searchkey2.setText(model.getdMCSWTISIQMSearchKey2());
     }
@@ -62,8 +66,8 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
 
     class myViewHolder extends RecyclerView.ViewHolder{
 
-        TextView itemDetails, demandDetails, receivedQuantity, billedQuantity, inHandQuantity;
-        TextView inProgressQty;
+        TextView itemDetails, demandDetails, receivedQuantity, purchaseQuantity, pendingPurchaseQuantity;
+        TextView inProgressPurchaseQty;
         TextView demandPendingApproval, addAdditionalDemand, searchkey2;
         TextView totalReceivedQuantity;
 
@@ -71,11 +75,11 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
             super(itemView);
             itemDetails = itemView.findViewById(R.id.textView62);
             demandDetails = itemView.findViewById(R.id.editTextNumber12);
-            receivedQuantity = itemView.findViewById(R.id.editTextNumber13);
-            billedQuantity = itemView.findViewById(R.id.editTextNumber14);
-            inHandQuantity = itemView.findViewById(R.id.editTextNumber15);
+            purchaseQuantity = itemView.findViewById(R.id.editTextNumber13);
+            receivedQuantity = itemView.findViewById(R.id.editTextNumber14);
+            pendingPurchaseQuantity = itemView.findViewById(R.id.editTextNumber15);
             demandPendingApproval = itemView.findViewById(R.id.editTextNumber16);
-            inProgressQty = itemView.findViewById(R.id.editTextNumber17);
+            inProgressPurchaseQty = itemView.findViewById(R.id.editTextNumber17);
             addAdditionalDemand = itemView.findViewById(R.id.textView90);
             searchkey2 = itemView.findViewById(R.id.textView91);
         }

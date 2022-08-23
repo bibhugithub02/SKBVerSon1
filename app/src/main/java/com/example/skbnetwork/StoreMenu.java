@@ -11,7 +11,10 @@ import android.widget.TextView;
 public class StoreMenu extends AppCompatActivity {
 
     TextView tv1,quantityReceived,stokeInHand,dailyIssue,dailyReturn,quit;
-    String action;
+    String menuOption;
+    String menuName,clientSiteName;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +30,17 @@ public class StoreMenu extends AppCompatActivity {
         dailyReturn = findViewById(R.id.textView83);
         quit = findViewById(R.id.textView84);
 
+        menuName = getIntent().getStringExtra("menu").toString();
+        clientSiteName = getIntent().getStringExtra("clientsitename").toString();
 
         quantityReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                action = "RQ";
+                menuOption = "RQ";  // RQ - Receive Quantity option
                 Intent i = new Intent(StoreMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menuname",action);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",menuOption);
+                i.putExtra("clientsitename",clientSiteName);
                 startActivity(i);
             }
         });
@@ -41,9 +48,12 @@ public class StoreMenu extends AppCompatActivity {
         stokeInHand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                action = "SIH";
+                menuOption = "SIH"; // SIH - Stoke iN hand Quantity Option
+              //  menuName = "STM";
                 Intent i = new Intent(StoreMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menuname",action);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",menuOption);
+                i.putExtra("clientsitename",clientSiteName);
                 startActivity(i);
 
             }
@@ -52,9 +62,12 @@ public class StoreMenu extends AppCompatActivity {
         dailyIssue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                action = "DI";
+                menuOption = "DI";  // Daily issue Option
+            //    menuName = "STM";
                 Intent i = new Intent(StoreMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menuname",action);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",menuOption);
+                i.putExtra("clientsitename",clientSiteName);
                 startActivity(i);
 
             }
@@ -63,16 +76,16 @@ public class StoreMenu extends AppCompatActivity {
         dailyReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                action = "DR";
+                menuOption = "DR"; // Daily return Option
+            //    menuName = "STM";
                 Intent i = new Intent(StoreMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menuname",action);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",menuOption);
+                i.putExtra("clientsitename",clientSiteName);
                 startActivity(i);
 
             }
         });
-
-
-
 
         quit.setOnClickListener(new View.OnClickListener() {
             @Override

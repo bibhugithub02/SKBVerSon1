@@ -19,12 +19,16 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
     MyAdopterForClientSiteWorkTypeRecyclerView myAdopterForClientSiteWorkTypeRecyclerView;
     RecyclerView recyclerView;
     Query query;
-
+    String menuName,clientSiteName;
+    String searchClientSite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_site_work_type_recycler_view);
+
+        menuName = getIntent().getStringExtra("menu").toString();
+        clientSiteName = getIntent().getStringExtra("clientsitename").toString();
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -32,7 +36,14 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster");
+        if(menuName.equals("MAM")){
+            query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster");
+        }else{
+            searchClientSite = clientSiteName;
+            query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster")
+                    .orderByChild("dMAWTTWMCClient_Site_WorkType").startAt(searchClientSite).endAt(searchClientSite+"\uf8ff");
+        }
+
 
         FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options =
                 new FirebaseRecyclerOptions.Builder<ModelAddWorkTypeToWorkMaster>()

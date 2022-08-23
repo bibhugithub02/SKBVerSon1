@@ -131,23 +131,48 @@
             android:id="@+id/textView89"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="98dp"
             android:layout_marginBottom="5dp"
-            android:text="Demand Pending Approval:" />
+            android:text="Pen App :" />
+
 
         <TextView
             android:id="@+id/editTextNumber16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextNumber13"
-            android:layout_marginLeft="205dp"
+            android:layout_marginLeft="215dp"
             android:layout_marginTop="-20dp"
             android:layout_marginBottom="-21dp"
             android:ems="3"
             android:gravity="center"
             android:hint="00000"
             android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/textView121"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="98dp"
+            android:layout_marginBottom="5dp"
+            android:text="Pen Pur :" />
+
+        <TextView
+            android:id="@+id/editTextNumber19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextNumber13"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="-21dp"
+            android:ems="3"
+            android:gravity="center"
+            android:hint="00000"
+            android:minHeight="48dp" />
+
+
 
         <TextView
             android:id="@+id/textView90"
@@ -157,10 +182,10 @@
             android:layout_marginTop="100dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/bg_rounded_blue"
-            android:textColor="@color/white"
             android:gravity="center"
             android:hint="Add Qty"
             android:padding="2dp"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold|italic"
             android:visibility="invisible" />
@@ -184,7 +209,7 @@
             android:textColor="#131313"
             android:textSize="16dp" />
 
-        <TextView
+         <TextView
             android:id="@+id/editTextNumber17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

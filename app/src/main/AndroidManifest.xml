@@ -19,6 +19,21 @@
         android:theme="@style/Theme.SKBNetwork"
         tools:targetApi="31">
         <activity
+            android:name=".ConfigurationMenu"
+            android:exported="false" />
+        <activity
+            android:name=".ApplicationTestingProgram"
+            android:exported="false" />
+        <activity
+            android:name=".EntitlementDb"
+            android:exported="false" />
+        <activity
+            android:name=".ListOfItemforClientWiseSiteWiseWorkTypeWise"
+            android:exported="false" />
+        <activity
+            android:name=".PurchaseMenu"
+            android:exported="false" />
+        <activity
             android:name=".PurchaseItemStatusAtSite"
             android:exported="false" />
         <activity

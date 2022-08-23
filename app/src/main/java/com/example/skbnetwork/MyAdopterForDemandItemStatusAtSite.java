@@ -61,6 +61,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
         holder.inProgressQty.setText(String.valueOf(model.getWorkInProgress()));
         holder.demandPendingApproval.setText(String.valueOf(model.getCurrentDemand()).toString().trim());
         holder.searchkey2.setText(model.getdMCSWTISIQMSearchKey2());
+        holder.totalPendingPurchaseQty.setText(String.valueOf(model.getTotalDemand()-model.getTotalReceived()));
 
     }
 
@@ -79,6 +80,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
         TextView inProgressQty;
         TextView demandPendingApproval, addAdditionalDemand, searchkey2;
         TextView totalReceivedQuantity;
+        TextView totalPendingPurchaseQty;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,6 +92,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
             inHandQuantity = itemView.findViewById(R.id.editTextNumber15);
             demandPendingApproval = itemView.findViewById(R.id.editTextNumber16);
             inProgressQty = itemView.findViewById(R.id.editTextNumber17);
+            totalPendingPurchaseQty = itemView.findViewById(R.id.editTextNumber19);
             addAdditionalDemand = itemView.findViewById(R.id.textView90);
             searchkey2 = itemView.findViewById(R.id.textView91);
 

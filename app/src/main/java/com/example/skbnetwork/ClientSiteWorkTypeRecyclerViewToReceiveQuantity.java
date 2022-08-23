@@ -20,7 +20,8 @@ public class ClientSiteWorkTypeRecyclerViewToReceiveQuantity extends AppCompatAc
     MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity myAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity;
     RecyclerView recyclerView;
     Query query;
-    String action;
+    String menuName,menuOption, clientSiteName;
+    String searchClientSite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,20 @@ public class ClientSiteWorkTypeRecyclerViewToReceiveQuantity extends AppCompatAc
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         recyclerView=findViewById(R.id.recyclerView5A);
-        action = getIntent().getStringExtra("menuname").toString();
+        menuName = getIntent().getStringExtra("menu").toString();
+        menuOption = getIntent().getStringExtra("menuOption").toString();
+        clientSiteName = getIntent().getStringExtra("clientsitename").toString();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster");
+        if(menuName.equals("MAM")){
+            query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster");
+        }else{
+            searchClientSite = clientSiteName;
+            query = FirebaseDatabase.getInstance().getReference().child("dModelAddWorkTypeToWorkMaster")
+                    .orderByChild("dMAWTTWMCClient_Site_WorkType").startAt(searchClientSite).endAt(searchClientSite+"\uf8ff");
+        }
+
 
         FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options =
                 new FirebaseRecyclerOptions.Builder<ModelAddWorkTypeToWorkMaster>()
@@ -42,7 +52,7 @@ public class ClientSiteWorkTypeRecyclerViewToReceiveQuantity extends AppCompatAc
                         .build();
 
         myAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity =
-                new MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity(options, action);
+                new MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity(options, menuOption);
         recyclerView.setAdapter(myAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity);
 
     }
@@ -97,7 +107,7 @@ public class ClientSiteWorkTypeRecyclerViewToReceiveQuantity extends AppCompatAc
                         .build();
 
         myAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity =
-                new MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity(options, action);
+                new MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity(options, menuOption);
         myAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity.startListening();
         recyclerView.setAdapter(myAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity);
 

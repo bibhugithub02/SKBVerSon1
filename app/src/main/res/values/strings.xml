@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SKB Network</string>
+    <string name="ClientName">Client Name</string>
 </resources>

@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 public class SiteOfficeMenu extends AppCompatActivity {
 
-    TextView siteEmployeeMaster, getSiteEmployeeDetails, demand_StokeInHand, raiseAdditionalDemand, billableItems, quit;
-
+    TextView siteEmployeeMaster, getSiteEmployeeDetails, demand_StokeInHand,
+            raiseAdditionalDemand, billableItems, quit;
+    String menuName, clientSiteName;
+    String menuOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,16 @@ public class SiteOfficeMenu extends AppCompatActivity {
         billableItems = findViewById(R.id.textView77);
         quit = findViewById(R.id.textView78);
 
+        menuName = getIntent().getStringExtra("menu").toString();
+        clientSiteName = getIntent().getStringExtra("clientsitename").toString();
+
 
         demand_StokeInHand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
+                i.putExtra("menu",menuName); // Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
+                i.putExtra("clientsitename",clientSiteName);//need to populate this for perticular client site
                 startActivity(i);
 
             }
@@ -43,9 +50,11 @@ public class SiteOfficeMenu extends AppCompatActivity {
         raiseAdditionalDemand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String action = "AQ";
+                menuOption = "AQ";
                 Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menuname",action);
+                i.putExtra("menu",menuName); // Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
+                i.putExtra("menuOption",menuOption);
+                i.putExtra("clientsitename",clientSiteName);//need to populate this for perticular client site
                 startActivity(i);
             }
         });
