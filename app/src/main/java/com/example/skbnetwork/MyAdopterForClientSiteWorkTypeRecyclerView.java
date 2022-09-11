@@ -70,8 +70,11 @@ public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecycler
                     //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
                     i.putExtra("menuname",menuname);
                     i.putExtra("clientname",clientName.getText().toString());
+                   // String T1 = clientName.getText().toString();
                     i.putExtra("sitename",siteName.getText().toString());
+                   // String T2 = siteName.getText().toString();
                     i.putExtra("worktype",workType.getText().toString());
+                   // String T3 =workType.getText().toString();
                     clientName.getContext().startActivity(i);
 
                 }

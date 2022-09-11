@@ -44,13 +44,13 @@
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@+id/imageView2"
             android:background="@drawable/bg_rounded_blue"
-            android:textColor="@color/white"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
             android:gravity="center"
+            android:paddingLeft="5dp"
             android:paddingTop="2dp"
+            android:paddingRight="5dp"
             android:paddingBottom="2dp"
             android:text="Add Items"
+            android:textColor="@color/white"
             android:visibility="invisible" />
 
         <TextView

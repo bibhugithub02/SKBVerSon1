@@ -32,9 +32,8 @@ public class ConfigurationMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                Intent i = new Intent(ConfigurationMenu.this, EntitlementDb.class);  // Login screen for OTP
-                startActivity(i); //NotDeliveredOn1stAug2022
+                Intent i = new Intent(ConfigurationMenu.this, EntitlementDb.class);  // Build the access for User
+                startActivity(i); //NotDeliveredOn1stSep2022
 
             }
         });
@@ -46,7 +45,7 @@ public class ConfigurationMenu extends AppCompatActivity {
                 Intent i = new Intent(ConfigurationMenu.this, LoginScreenOne.class);  // Login screen for OTP
                 //Intent i = new Intent(SKBMainMenu.this, EntitlementDb.class); // TO add access record
                 // Intent i = new Intent(SKBMainMenu.this, ApplicationTestingProgram.class); // Test program
-                startActivity(i); //NotDeliveredOn1stAug2022
+                startActivity(i); //NotDeliveredOn1stSep2022
 
             }
         });
@@ -56,7 +55,7 @@ public class ConfigurationMenu extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ConfigurationMenu.this, ApplicationTestingProgram.class); // Test program
-                startActivity(i); //NotDeliveredOn1stAug2022
+                startActivity(i); //NotDeliveredOn1stSep2022
 
             }
         });

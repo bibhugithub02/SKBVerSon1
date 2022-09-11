@@ -95,6 +95,7 @@ public class OtpReceived extends AppCompatActivity {
                                                         str = ds.child("menuName").getValue().toString();
                                                         clientSiteName=ds.child("siteNme").getValue().toString();
                                                         clientSiteName = clientSiteName.replace("_","+");
+
                                                         //MAM : - Master Menu
                                                     if(str.equals("MAM")){
                                                         progressBar.setVisibility(View.GONE);
@@ -104,6 +105,7 @@ public class OtpReceived extends AppCompatActivity {
                                                         // that will never comes back to this activity
                                                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                         startActivity(i);
+
                                                         //MAA : - Site in Charge Menu
                                                     }else if(str.equals("SIM")){
                                                         progressBar.setVisibility(View.GONE);
@@ -116,6 +118,7 @@ public class OtpReceived extends AppCompatActivity {
                                                         // that will never comes back to this activity
                                                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                         startActivity(i);
+
                                                         //MAA : - Store Menu
                                                     }else if(str.equals("STM")){
                                                         progressBar.setVisibility(View.GONE);
@@ -128,6 +131,7 @@ public class OtpReceived extends AppCompatActivity {
                                                         // that will never comes back to this activity
                                                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                         startActivity(i);
+
                                                         //MAA : - Head Office Menu
                                                     }else if(str.equals("HOM")){
                                                         progressBar.setVisibility(View.GONE);

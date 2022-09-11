@@ -12,11 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends FirebaseRecyclerAdapter
         <ModelAddWorkTypeToWorkMaster,MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity.myViewHolder > {
 
   String action1;
+  Query query;
+  String searchkey;
+  String flag;
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -46,25 +54,57 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
         //SIN - Stoke in Hand - Coming from Store Menu
 
         if (action1.equals("RQ")){
-            holder.addItemCategory.setText("Add Receive Quantity");
+            holder.addItemCategory.setText("Add Quantity"); // Store Menu -- > Quantity Received
             }else if (action1.equals("AQ")){
-                holder.addItemCategory.setText("Add Demand Quantity");
+                holder.addItemCategory.setText("Add Quantity"); // Site menu --> Additional qty
             }else if (action1.equals("SIH")){
-                holder.addItemCategory.setText("Stoke View");
+                holder.addItemCategory.setText("Stoke View"); // Stock in hand from different menu
             }else if (action1.equals("DI")){
-                holder.addItemCategory.setText("Issue Qty");
+                holder.addItemCategory.setText("Issue Qty"); // store Menu
             }else if (action1.equals("DR")){
-                holder.addItemCategory.setText("Return Qty");
+                holder.addItemCategory.setText("Return Qty");// store Menu
             }else if (action1.equals("PFS")){
-                holder.addItemCategory.setText("Pur Status");
+                holder.addItemCategory.setText("Pur Status"); // Purchase Menu (Purchase for Site)
             }else if (action1.equals("PPFS")){
-                holder.addItemCategory.setText("Pen Purchase");
+                holder.addItemCategory.setText("Pen Purchase"); // Purchase Menu (Pending purchase for Site)
             }else if (action1.equals("LPFS")){
-                holder.addItemCategory.setText("List Items");
+                holder.addItemCategory.setText("List Items"); // Purchase Menu -> List of item purchase for site
+             }else if (action1.equals("RPRS")){
+                holder.addItemCategory.setText("Pur Request"); // Purchase Menu- > Raise purchase Request for site
         }else
             {
                 holder.addItemCategory.setText("No Action");
             }
+
+        //==================================================
+
+        searchkey = model.getdMAWTTWMClientName()+"_"+model.getdMAWTTWMCSiteName()+"_"+model.getdMAWTTWMCWorkTypeName();
+        query = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
+                .orderByChild("dMCSWTISIQMSearchKey1").equalTo(searchkey);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    // Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
+                    holder.recordForAction.setText("Next level available for action : Yes");
+
+                }else{
+                   // Toast.makeText(DemandItemStatusAtSite.this, "No Record to Display", Toast.LENGTH_SHORT).show();
+                    holder.recordForAction.setText("Next level available for action : No");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+
+
+        //==================================================
 
 
     }
@@ -83,6 +123,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
 
         TextView clientName,siteName, workType, addItemCategory;
         TextView viewItemAtSite;
+        TextView recordForAction;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -91,6 +132,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
             workType = itemView.findViewById(R.id.textView33);
             addItemCategory = itemView.findViewById(R.id.textView34);
             viewItemAtSite = itemView.findViewById(R.id.textView57);
+            recordForAction = itemView.findViewById(R.id.editTextNumber23);
 
             addItemCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -119,47 +161,71 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                         clientName.getContext().startActivity(stokeInHand);
                     }
 
+                    // Purchase Status from Purchase menu
                     // Below code is for Purchase Menu, get the purchase status for a site(PFS)
 
 
                     if (action1.equals("PFS")) {
                         Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
-                        Intent stokeInHand = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
+                        Intent PFS = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
                         // Parameter used when called from Store Menu Option
                         //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
-                        stokeInHand.putExtra("menuname",action1);
-                        stokeInHand.putExtra("clientname",clientName.getText().toString());
-                        stokeInHand.putExtra("sitename",siteName.getText().toString());
-                        stokeInHand.putExtra("worktype",workType.getText().toString());
-                     //   clientName.getContext().startActivity(stokeInHand);
+                        PFS.putExtra("menuname",action1);
+                        PFS.putExtra("clientname",clientName.getText().toString());
+                        PFS.putExtra("sitename",siteName.getText().toString());
+                        PFS.putExtra("worktype",workType.getText().toString());
+                        clientName.getContext().startActivity(PFS);
 
                     }
 
+                    // Pending Purchase from Purchase menu
                     // Below code is for Purchase Menu, get the purchase pending for a site(PPFS)
 
                     if (action1.equals("PPFS")) {
                         Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
-                        Intent stokeInHand = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
+                        Intent PPFS = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
                         // Parameter used when called from Store Menu Option
                         //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
-                        stokeInHand.putExtra("menuname",action1);
-                        stokeInHand.putExtra("clientname",clientName.getText().toString());
-                        stokeInHand.putExtra("sitename",siteName.getText().toString());
-                        stokeInHand.putExtra("worktype",workType.getText().toString());
-                      //  clientName.getContext().startActivity(stokeInHand);
+                        PPFS.putExtra("menuname",action1);
+                        PPFS.putExtra("clientname",clientName.getText().toString());
+                        PPFS.putExtra("sitename",siteName.getText().toString());
+                        PPFS.putExtra("worktype",workType.getText().toString());
+                        clientName.getContext().startActivity(PPFS);
 
                     }
 
+                    // Purchase in Hand from Purchase menu
+                    // Below code is for Purchase Menu, get the List(L) of item pending(P) for Purchase for(F) a site(S) (LPFS)
+                    //Quantity will show as Zero in-case the demand quantity is pending for approval
+                    // Quantity displayed as Total Demand - Total Received
+
                     if (action1.equals("LPFS")) {
-                        Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
-                        Intent stokeInHand = new Intent(itemView.getContext(),ListOfItemforClientWiseSiteWiseWorkTypeWise.class );
+                     //   Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
+                        Intent LPFS = new Intent(itemView.getContext(),ListOfItemforClientWiseSiteWiseWorkTypeWise.class);
                         // Parameter used when called from Store Menu Option
                         //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
-                        stokeInHand.putExtra("menuname",action1);
-                        stokeInHand.putExtra("clientname",clientName.getText().toString());
-                        stokeInHand.putExtra("sitename",siteName.getText().toString());
-                        stokeInHand.putExtra("worktype",workType.getText().toString());
-                        clientName.getContext().startActivity(stokeInHand);
+                        LPFS.putExtra("menuname",action1);
+                        LPFS.putExtra("clientname",clientName.getText().toString());
+                        LPFS.putExtra("sitename",siteName.getText().toString());
+                        LPFS.putExtra("worktype",workType.getText().toString());
+                        clientName.getContext().startActivity(LPFS);
+
+                    }
+
+                    // Purchase request from SIT Menu
+                    //Quantity will show as Zero in-case the demand quantity is pending for approval
+                    // Quantity displayed as Total Demand - Total Received
+
+                    if (action1.equals("RPRS")) {
+                        //   Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
+                        Intent LPFS = new Intent(itemView.getContext(),ListOfItemforClientWiseSiteWiseWorkTypeWise.class);
+                        // Parameter used when called from Store Menu Option
+                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+                        LPFS.putExtra("menuname",action1);
+                        LPFS.putExtra("clientname",clientName.getText().toString());
+                        LPFS.putExtra("sitename",siteName.getText().toString());
+                        LPFS.putExtra("worktype",workType.getText().toString());
+                        clientName.getContext().startActivity(LPFS);
 
                     }
 

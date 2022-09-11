@@ -41,7 +41,7 @@ public class ApplicationTestingProgram extends AppCompatActivity {
                             str = ds.child("menuName").getValue().toString();
                             clientSiteName = ds.child("siteNme").getValue().toString();
                             clientSiteName = clientSiteName.replace("_","+");
-                        if(str.equals("STM")){
+                        if(str.equals("SIM")){
                             menuName = "SIM";
                             Intent i = new Intent(ApplicationTestingProgram.this, SiteOfficeMenu.class);
                             i.putExtra("menu",menuName);

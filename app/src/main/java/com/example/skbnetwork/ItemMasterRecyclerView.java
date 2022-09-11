@@ -109,7 +109,8 @@ public class ItemMasterRecyclerView extends AppCompatActivity {
                         .build();
 
         myAdopterForitemmasterrecyclerviewsinglerow = new MyAdopterForitemmasterrecyclerviewsinglerow
-                (options, menuName);
+              //  (options, menuName);
+                (options, menuName, clientName, siteName, workType);
         myAdopterForitemmasterrecyclerviewsinglerow.startListening();
         recyclerView.setAdapter(myAdopterForitemmasterrecyclerviewsinglerow);
 
