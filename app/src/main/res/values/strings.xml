@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">SKB Network</string>
+    <string name="app_name_HO">SKB Network Head Office</string>
+    <string name="app_name_ST">SKB Network Store</string>
+    <string name="app_name_SIT">SKB Network Site Office</string>
+    <string name="app_name_SIT_stock">SKB Network Site Office Stock</string>
+    <string name="app_name_SIT_addDemand">SKB Network Site Office Add Demand</string>
+    <string name="app_name_Pur">SKB Network Purchase Department</string>
+    <string name="app_name_conf">SKB Network Configuration Menu</string>
+    <string name="app_name_Item_List">SKB Network Item List</string>
+    <string name="app_name_ClientConf">SKB Network Client Configuration</string>
+    <string name="app_name_DemandApprovals">SKB Network Demand Pending Approvals</string>
     <string name="ClientName">Client Name</string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -35,6 +36,8 @@ public class AddWorkTypeForASite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_work_type_for_asite);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">"
+                + getString(R.string.app_name_ClientConf) + "</font>"));
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -87,7 +90,7 @@ public class AddWorkTypeForASite extends AppCompatActivity {
         workTypeDescriptionDialog.setMessage("Enter work type for the Site "); // Set the message to be displayed to the user on the Popup
         workTypeDescriptionDialog.setView(workTypeDescription);
 
-        workTypeDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+        workTypeDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Add</font>"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(workTypeDescription.getText().toString().trim().isEmpty()){
@@ -100,7 +103,7 @@ public class AddWorkTypeForASite extends AppCompatActivity {
             }
         });
 
-        workTypeDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        workTypeDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Close the dialog

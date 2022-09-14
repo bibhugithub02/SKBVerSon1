@@ -1,6 +1,7 @@
 package com.example.skbnetwork;
 
 import android.content.DialogInterface;
+import android.text.Html;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends FirebaseRecyclerAdapter
@@ -43,11 +46,12 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
         @Override
         protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull ModelClientSiteWorkTypeItemSubItemQuantityMaster model) {
 
-            holder.itemDetails.setText(model.getdMCSWTISIQMItemCategory()+"/"+model.getdMCSWTISIQMSubItem());
+            holder.itemDetails.setText(model.getdMCSWTISIQMItemCategory()+"_"+model.getdMCSWTISIQMSubItem());
             holder.itemQuantity.setText(String.valueOf(model.getTotalDemand()-model.getTotalReceived()));
             holder.rQuantity = model.getTotalDemand()-model.getTotalReceived();
             holder.pendingPurchaseQuantity.setText(String.valueOf(model.getCurrentPurchased()));
             holder.searchkey2.setText(model.getdMCSWTISIQMSearchKey2());
+            holder.searchkey1.setText(model.getdMCSWTISIQMSearchKey1());
         }
 
         @NonNull
@@ -65,7 +69,7 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
        TextView itemQuantity, pendingPurchaseQuantity;
        TextView request;
        int rQuantity;
-       TextView searchkey2;
+       TextView searchkey2, searchkey1;
 
        public myViewHolder(@NonNull View itemView) {
            super(itemView);
@@ -74,6 +78,7 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
            itemQuantity = itemView.findViewById(R.id.editTextNumber22);
            request = itemView.findViewById(R.id.textView136);
            searchkey2 = itemView.findViewById(R.id.textView138);
+           searchkey1 = itemView.findViewById(R.id.textView67);
            pendingPurchaseQuantity = itemView.findViewById(R.id.editTextNumber21);
 
            if (action.equals("RPRS"))
@@ -93,23 +98,28 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
                    itemDescriptionDialog.setMessage("Enter required Quantity"); // Set the message to be displayed to the user on the Popup
                    itemDescriptionDialog.setView(purChaseRequestQuantity);
 
-                   itemDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                   itemDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Add</font>")
+                           , new DialogInterface.OnClickListener() {
                        @Override
                        public void onClick(DialogInterface dialog, int which) {
                            if(Integer.parseInt(purChaseRequestQuantity.getText().toString()) <= 0){
                                Toast.makeText(itemView.getContext(), "Request Quantity cannot be 0", Toast.LENGTH_SHORT).show();
-                           }else if (Integer.parseInt(purChaseRequestQuantity.getText().toString()) > rQuantity){
+                           }else if ((Integer.parseInt(purChaseRequestQuantity.getText().toString())
+                           +Integer.parseInt(pendingPurchaseQuantity.getText().toString())) > rQuantity){
                                Toast.makeText(itemView.getContext(), "Request Quantity cannot more than standard Quantity", Toast.LENGTH_SHORT).show();
 
                            }else {
                                // subItem = itemDescription.getText().toString().trim();
-                               addToDataBase();
+                               updateToDataBase();
+                               addToPurchaseDB();//Add purchase request details to purchase master db
                                Toast.makeText(itemView.getContext(), "Working // Add to the DB", Toast.LENGTH_SHORT).show();
                            }
 
                        }
 
-                       private void addToDataBase() {
+
+
+                               private void updateToDataBase() {
                            FirebaseDatabase db = FirebaseDatabase.getInstance();
                            DatabaseReference dbr = db.getReference("dModelClientSiteWorkTypeItemSubItemQuantityMaster");
 
@@ -126,9 +136,39 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
                                        }
                                    });
                        }
+
+                               private void addToPurchaseDB() {
+
+                                   FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                                   DatabaseReference dbr = firebaseDatabase.getReference("dModelPurchaseRequest");
+
+                                   String mpmdemandDate = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
+                                   String mpmclientSiteWorkType = searchkey1.getText().toString();
+                                   String mpmitemDescription = searchkey2.getText().toString();
+                                   int mpmpurchaseDemandQuantity= Integer.parseInt(purChaseRequestQuantity.getText().toString())
+                                           +Integer.parseInt(pendingPurchaseQuantity.getText().toString());
+                                   String mpmsiteFiller01 =searchkey1.getText().toString()+ mpmpurchaseDemandQuantity;
+                                   String mpmsiteFiller02="";
+                                   int mpmsiteFiller03 = 0 ;
+                                   //String sKey = itemDetails.getText().toString().trim();
+
+                                   ModelPurchaseRequest obj = new ModelPurchaseRequest(mpmdemandDate, mpmclientSiteWorkType, mpmitemDescription,
+                                   mpmpurchaseDemandQuantity, mpmsiteFiller01, mpmsiteFiller02, mpmsiteFiller03);
+
+                                  // dbr.child(mpmclientSiteWorkType).child(sKey).setValue(obj);
+                                    dbr.child(mpmitemDescription).setValue(obj);
+
+                                   Toast.makeText(itemDetails.getContext(), "New Client added successfully", Toast.LENGTH_SHORT).show();
+
+
+                               }
+
+
+
                    });
 
-                   itemDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                   itemDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                        @Override
                        public void onClick(DialogInterface dialog, int which) {
                            //Close the dialog

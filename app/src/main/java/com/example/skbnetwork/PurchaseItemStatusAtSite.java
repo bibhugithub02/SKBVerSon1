@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
@@ -37,6 +38,9 @@ public class PurchaseItemStatusAtSite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_item_status_at_site);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">"
+                + getString(R.string.app_name) + "</font>"));
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

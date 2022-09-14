@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,9 @@ public class ListOfItemforClientWiseSiteWiseWorkTypeWise extends AppCompatActivi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_itemfor_client_wise_site_wise_work_type_wise);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">"
+                + getString(R.string.app_name) + "</font>"));
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

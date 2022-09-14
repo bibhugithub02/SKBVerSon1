@@ -5,9 +5,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.SearchView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -26,6 +30,9 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_site_work_type_recycler_view);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">"
+                + getString(R.string.app_name) + "</font>"));
 
         menuName = getIntent().getStringExtra("menu").toString();
         clientSiteName = getIntent().getStringExtra("clientsitename").toString();
@@ -75,6 +82,7 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.app_bar_search);
 
         SearchView searchView = (SearchView) item.getActionView();
+        searchView.setQueryHint("Type Your Search here");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

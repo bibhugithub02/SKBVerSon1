@@ -3,6 +3,7 @@ package com.example.skbnetwork;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.Html;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,7 +132,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
             clientDescriptionDialog.setMessage("Enter Demand Quantity"); // Set the message to be displayed to the user on the Popup
             clientDescriptionDialog.setView(quantity);
 
-            clientDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            clientDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Add</font>"), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
@@ -219,7 +220,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
                 }
             });
 
-            clientDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            clientDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //Close the dialog
@@ -237,7 +238,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
             //siteDescriptionDialog.setMessage("Enter Site for Client"); // Set the message to be displayed to the user on the Popup
             // siteDescriptionDialog.setView(SiteDescription);
 
-            siteDescriptionDialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            siteDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Delete</font>"), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
@@ -245,7 +246,7 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
                     deleteItemFromdModelSubCategoryItemMaster();
                 }
             });
-            siteDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            siteDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //Close the dialog

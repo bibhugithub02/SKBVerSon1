@@ -1,6 +1,7 @@
 package com.example.skbnetwork;
 
 import android.content.DialogInterface;
+import android.text.Html;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -124,7 +125,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                         itemDescriptionDialog.setView(quantity);
 
-                        itemDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                        itemDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Yes</font>"), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if (Integer.parseInt(quantity.getText().toString()) <= 0) {
@@ -159,7 +160,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                             }
                         });
-                        itemDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        itemDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //Close the dialog
@@ -179,7 +180,8 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                     itemDescriptionDialog.setView(quantity);
 
-                    itemDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    itemDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Add</font>")
+                            , new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (Integer.parseInt(quantity.getText().toString()) <= 0) {
@@ -216,7 +218,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                         }
                     });
-                    itemDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    itemDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Close the dialog
@@ -246,7 +248,8 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                     itemDescriptionDialog.setView(quantity);
 
-                    itemDescriptionDialog.setPositiveButton("Return", new DialogInterface.OnClickListener() {
+                    itemDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Return</font>")
+                            , new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (Integer.parseInt(quantity.getText().toString()) <= 0) {
@@ -282,7 +285,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                         }
                     });
-                    itemDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    itemDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Close the dialog
@@ -302,7 +305,8 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                     itemDescriptionDialog.setView(quantity);
 
-                    itemDescriptionDialog.setPositiveButton("Issue", new DialogInterface.OnClickListener() {
+                    itemDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Issue</font>")
+                            , new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (Integer.parseInt(quantity.getText().toString()) <= 0) {
@@ -338,7 +342,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
 
                         }
                     });
-                    itemDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    itemDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Close the dialog

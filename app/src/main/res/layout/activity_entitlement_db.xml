@@ -93,6 +93,7 @@
             android:layout_margin="20dp"
             android:minHeight="48dp"
             android:padding="10dp"
+            android:textColor="@color/black"
             android:text="Submit" />
 
 

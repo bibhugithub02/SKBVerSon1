@@ -22,7 +22,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
         <ModelAddWorkTypeToWorkMaster,MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity.myViewHolder > {
 
   String action1;
-  Query query;
+  Query query1, query2;
   String searchkey;
   String flag;
     /**
@@ -53,61 +53,79 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
         //AQ - Additional Quantity demand, coming from Site menu
         //SIN - Stoke in Hand - Coming from Store Menu
 
-        if (action1.equals("RQ")){
+        if (action1.equals("RQ")) {
             holder.addItemCategory.setText("Add Quantity"); // Store Menu -- > Quantity Received
-            }else if (action1.equals("AQ")){
-                holder.addItemCategory.setText("Add Quantity"); // Site menu --> Additional qty
-            }else if (action1.equals("SIH")){
-                holder.addItemCategory.setText("Stoke View"); // Stock in hand from different menu
-            }else if (action1.equals("DI")){
-                holder.addItemCategory.setText("Issue Qty"); // store Menu
-            }else if (action1.equals("DR")){
-                holder.addItemCategory.setText("Return Qty");// store Menu
-            }else if (action1.equals("PFS")){
-                holder.addItemCategory.setText("Pur Status"); // Purchase Menu (Purchase for Site)
-            }else if (action1.equals("PPFS")){
-                holder.addItemCategory.setText("Pen Purchase"); // Purchase Menu (Pending purchase for Site)
-            }else if (action1.equals("LPFS")){
-                holder.addItemCategory.setText("List Items"); // Purchase Menu -> List of item purchase for site
-             }else if (action1.equals("RPRS")){
-                holder.addItemCategory.setText("Pur Request"); // Purchase Menu- > Raise purchase Request for site
-        }else
-            {
-                holder.addItemCategory.setText("No Action");
-            }
+        } else if (action1.equals("AQ")) {
+            holder.addItemCategory.setText("Add Quantity"); // Site menu --> Additional qty
+        } else if (action1.equals("SIH")) {
+            holder.addItemCategory.setText("Stoke View"); // Stock in hand from different menu
+        } else if (action1.equals("DI")) {
+            holder.addItemCategory.setText("Issue Qty"); // store Menu
+        } else if (action1.equals("DR")) {
+            holder.addItemCategory.setText("Return Qty");// store Menu
+        } else if (action1.equals("PFS")) {
+            holder.addItemCategory.setText("Pur Status"); // Purchase Menu (Purchase for Site)
+        } else if (action1.equals("PPFS")) {
+            holder.addItemCategory.setText("Pen Purchase"); // Purchase Menu (Pending purchase for Site)
+        } else if (action1.equals("LPFS")) {
+            holder.addItemCategory.setText("List Items"); // Purchase Menu -> List of item purchase for site
+            // & also come from Site menu
+        } else if (action1.equals("RPRS")) {
+            holder.addItemCategory.setText("Pur Request"); // Site Menu- > Raise purchase Request for site
+        } else {
+            holder.addItemCategory.setText("No Action");
+        }
 
-        //==================================================
 
-        searchkey = model.getdMAWTTWMClientName()+"_"+model.getdMAWTTWMCSiteName()+"_"+model.getdMAWTTWMCWorkTypeName();
-        query = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
-                .orderByChild("dMCSWTISIQMSearchKey1").equalTo(searchkey);
+//        //if coming from Purchase menu and looking for pending purchase
+//        if (action1.equals("PPFS")) {
+//
+//            searchkey = model.getdMAWTTWMClientName() + "_" + model.getdMAWTTWMCSiteName() + "_" + model.getdMAWTTWMCWorkTypeName() + 1;
+//            query1 = FirebaseDatabase.getInstance().getReference().child("dModelPurchaseRequest")
+//                    .orderByChild("mprsiteFiller01").startAt(searchkey);
+//            query1.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    if (snapshot.exists()) {
+//                        holder.recordForAction.setText("Next level available for action : Yes");
+//                    }
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//        }
 
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    // Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
-                    holder.recordForAction.setText("Next level available for action : Yes");
+//        if (!action1.equals("PPFS")) {
+            searchkey = model.getdMAWTTWMClientName() + "_" + model.getdMAWTTWMCSiteName() + "_" + model.getdMAWTTWMCWorkTypeName();
+            query2 = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
+                    .orderByChild("dMCSWTISIQMSearchKey1").equalTo(searchkey);
 
-                }else{
-                   // Toast.makeText(DemandItemStatusAtSite.this, "No Record to Display", Toast.LENGTH_SHORT).show();
-                    holder.recordForAction.setText("Next level available for action : No");
+            query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        // Toast.makeText(DemandItemStatusAtSite.this, "NO Record to Display", Toast.LENGTH_SHORT).show();
+                        holder.recordForAction.setText("Next level available for action : Yes");
+
+                    } else {
+                        // Toast.makeText(DemandItemStatusAtSite.this, "No Record to Display", Toast.LENGTH_SHORT).show();
+                        holder.recordForAction.setText("Next level available for action : No");
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
+                }
 
-        });
+            });
+        }
 
-
-
-        //==================================================
-
-
-    }
+ //   }
 
     @NonNull
     @Override

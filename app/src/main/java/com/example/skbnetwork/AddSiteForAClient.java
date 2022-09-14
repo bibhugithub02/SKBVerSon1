@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,6 +38,8 @@ public class AddSiteForAClient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_site_for_aclient);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">"
+                + getString(R.string.app_name_ClientConf) + "</font>"));
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -82,7 +85,7 @@ public class AddSiteForAClient extends AppCompatActivity {
         siteDescriptionDialog.setMessage("Enter Site for Client"); // Set the message to be displayed to the user on the Popup
         siteDescriptionDialog.setView(SiteDescription);
 
-        siteDescriptionDialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+        siteDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Add</font>"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                if(SiteDescription.getText().toString().trim().isEmpty()){
@@ -95,7 +98,7 @@ public class AddSiteForAClient extends AppCompatActivity {
             }
         });
 
-        siteDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        siteDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Close the dialog

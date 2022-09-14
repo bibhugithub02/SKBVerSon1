@@ -3,6 +3,7 @@ package com.example.skbnetwork;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -169,7 +170,7 @@ public class MyAdopterForitemmasterrecyclerviewsinglerow extends FirebaseRecycle
             //siteDescriptionDialog.setMessage("Enter Site for Client"); // Set the message to be displayed to the user on the Popup
            // siteDescriptionDialog.setView(SiteDescription);
 
-            siteDescriptionDialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            siteDescriptionDialog.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Delete</font>"), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
@@ -177,7 +178,7 @@ public class MyAdopterForitemmasterrecyclerviewsinglerow extends FirebaseRecycle
                            deleteItemFromItemMaster();
                 }
             });
-            siteDescriptionDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            siteDescriptionDialog.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Cancel</font>"), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //Close the dialog
