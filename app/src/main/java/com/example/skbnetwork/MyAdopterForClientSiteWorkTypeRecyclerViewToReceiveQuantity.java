@@ -65,8 +65,8 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
             holder.addItemCategory.setText("Return Qty");// store Menu
         } else if (action1.equals("PFS")) {
             holder.addItemCategory.setText("Pur Status"); // Purchase Menu (Purchase for Site)
-        } else if (action1.equals("PPFS")) {
-            holder.addItemCategory.setText("Pen Purchase"); // Purchase Menu (Pending purchase for Site)
+//        } else if (action1.equals("PPFS")) {
+//            holder.addItemCategory.setText("Pen Purchase"); // Purchase Menu (Pending purchase for Site)
         } else if (action1.equals("LPFS")) {
             holder.addItemCategory.setText("List Items"); // Purchase Menu -> List of item purchase for site
             // & also come from Site menu
@@ -77,29 +77,6 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
         }
 
 
-//        //if coming from Purchase menu and looking for pending purchase
-//        if (action1.equals("PPFS")) {
-//
-//            searchkey = model.getdMAWTTWMClientName() + "_" + model.getdMAWTTWMCSiteName() + "_" + model.getdMAWTTWMCWorkTypeName() + 1;
-//            query1 = FirebaseDatabase.getInstance().getReference().child("dModelPurchaseRequest")
-//                    .orderByChild("mprsiteFiller01").startAt(searchkey);
-//            query1.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    if (snapshot.exists()) {
-//                        holder.recordForAction.setText("Next level available for action : Yes");
-//                    }
-//
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            });
-//        }
-
-//        if (!action1.equals("PPFS")) {
             searchkey = model.getdMAWTTWMClientName() + "_" + model.getdMAWTTWMCSiteName() + "_" + model.getdMAWTTWMCWorkTypeName();
             query2 = FirebaseDatabase.getInstance().getReference().child("dModelClientSiteWorkTypeItemSubItemQuantityMaster")
                     .orderByChild("dMCSWTISIQMSearchKey1").equalTo(searchkey);
@@ -198,19 +175,19 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
 
                     // Pending Purchase from Purchase menu
                     // Below code is for Purchase Menu, get the purchase pending for a site(PPFS)
-
-                    if (action1.equals("PPFS")) {
-                        Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
-                        Intent PPFS = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
-                        // Parameter used when called from Store Menu Option
-                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
-                        PPFS.putExtra("menuname",action1);
-                        PPFS.putExtra("clientname",clientName.getText().toString());
-                        PPFS.putExtra("sitename",siteName.getText().toString());
-                        PPFS.putExtra("worktype",workType.getText().toString());
-                        clientName.getContext().startActivity(PPFS);
-
-                    }
+//
+//                    if (action1.equals("PPFS")) {
+//                        Toast.makeText(clientName.getContext(), "Purchase menu - Work In Progress ", Toast.LENGTH_SHORT).show();
+//                        Intent PPFS = new Intent(itemView.getContext(),PurchaseItemStatusAtSite.class );
+//                        // Parameter used when called from Store Menu Option
+//                        //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty
+//                        PPFS.putExtra("menuname",action1);
+//                        PPFS.putExtra("clientname",clientName.getText().toString());
+//                        PPFS.putExtra("sitename",siteName.getText().toString());
+//                        PPFS.putExtra("worktype",workType.getText().toString());
+//                        clientName.getContext().startActivity(PPFS);
+//
+//                    }
 
                     // Purchase in Hand from Purchase menu
                     // Below code is for Purchase Menu, get the List(L) of item pending(P) for Purchase for(F) a site(S) (LPFS)

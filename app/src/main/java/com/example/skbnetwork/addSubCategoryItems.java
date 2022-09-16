@@ -155,6 +155,13 @@ public class addSubCategoryItems extends AppCompatActivity {
 
         dbr.child(dMSCIMItemName+"_"+dMSCIMSubCategoryItemName).setValue(obj);
 
+        //Write to monitoring DB ModelForMonitoring
+
+        ModelForMonitoring m = new ModelForMonitoring();
+        m.writeToDB(timeStamp,"addSubCategoryItems",dMSCIMItemName,
+                "ModelSubCategoryItemMaster","Add Record",
+                dMSCIMSubCategoryItemName);
+
 
         Toast.makeText(addSubCategoryItems.this, "Sub Category Item been added successfully", Toast.LENGTH_SHORT).show();
 

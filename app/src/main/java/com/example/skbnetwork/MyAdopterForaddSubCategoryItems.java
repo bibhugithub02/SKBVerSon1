@@ -217,6 +217,13 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
 
                     dbr.child(dMCSWTISIQMSearchKey2).setValue(obj);
 
+           //Write to monitoring DB ModelForMonitoring
+
+                    ModelForMonitoring m = new ModelForMonitoring();
+                    m.writeToDB(timeStamp,"MyAdopterForaddSubCategoryItems",dMCSWTISIQMSearchKey1,
+                            "ModelClientSiteWorkTypeItemSubItemQuantityMaster","Add Record",
+                            dMCSWTISIQMSearchKey2);
+
                 }
             });
 

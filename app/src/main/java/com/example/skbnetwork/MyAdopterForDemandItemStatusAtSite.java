@@ -206,6 +206,7 @@ public class MyAdopterForDemandItemStatusAtSite extends FirebaseRecyclerAdapter
                             hashMap.put("currentReceived", AdditionalReceivedQuantity);
                             hashMap.put("totalReceived", Integer.parseInt(receivedQuantity.getText().toString()) + AdditionalReceivedQuantity);
                             hashMap.put("stokeInHand", Integer.parseInt(inHandQuantity.getText().toString()) + AdditionalReceivedQuantity);
+                            hashMap.put("currentPurchased", 0);
                             hashMap.put("dMCSWTISIQMSearchKey3", "It is working for now");
 
                             dbr.child(searchkey2.getText().toString()).updateChildren(hashMap).

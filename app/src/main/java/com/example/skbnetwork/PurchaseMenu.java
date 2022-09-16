@@ -77,26 +77,20 @@ public class PurchaseMenu extends AppCompatActivity {
                 action = "PPFS"; // PFS - Purchase for that particular Site
                 menuName = "HOM";
                 clientSiteName="";
-                Intent i = new Intent(PurchaseMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menu",menuName);
-                i.putExtra("menuOption",action);
-                i.putExtra("clientsitename",clientSiteName);
+                 Intent i = new Intent(PurchaseMenu.this, PendingPurchaseForClientForPO.class);
                 startActivity(i);
 
             }
 
         });
 
-        pendingPurchasesI.setOnClickListener(new View.OnClickListener() {
+        pendingPurchases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 action = "PPFS"; // PFS - Purchase for that particular Site
                 menuName = "HOM";
                 clientSiteName="";
-                Intent i = new Intent(PurchaseMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-                i.putExtra("menu",menuName);
-                i.putExtra("menuOption",action);
-                i.putExtra("clientsitename",clientSiteName);
+                Intent i = new Intent(PurchaseMenu.this, PendingPurchaseForClientForPO.class);
                 startActivity(i);
 
             }

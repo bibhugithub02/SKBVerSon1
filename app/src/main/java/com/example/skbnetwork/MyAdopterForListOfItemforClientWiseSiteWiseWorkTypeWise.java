@@ -149,7 +149,7 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
                                    int mpmpurchaseDemandQuantity= Integer.parseInt(purChaseRequestQuantity.getText().toString())
                                            +Integer.parseInt(pendingPurchaseQuantity.getText().toString());
                                    String mpmsiteFiller01 =searchkey1.getText().toString()+ mpmpurchaseDemandQuantity;
-                                   String mpmsiteFiller02="";
+                                   String mpmsiteFiller02=itemDetails.getText().toString();
                                    int mpmsiteFiller03 = 0 ;
                                    //String sKey = itemDetails.getText().toString().trim();
 
@@ -158,6 +158,14 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
 
                                   // dbr.child(mpmclientSiteWorkType).child(sKey).setValue(obj);
                                     dbr.child(mpmitemDescription).setValue(obj);
+
+                                   //Write to monitoring DB ModelForMonitoring
+
+                                   ModelForMonitoring m = new ModelForMonitoring();
+                                   m.writeToDB(mpmdemandDate,"MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise", mpmsiteFiller01,
+                                           "ModelPurchaseRequest","Add Record",
+                                           mpmsiteFiller02);
+
 
                                    Toast.makeText(itemDetails.getContext(), "New Client added successfully", Toast.LENGTH_SHORT).show();
 

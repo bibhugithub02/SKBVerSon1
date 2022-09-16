@@ -1,5 +1,6 @@
 package com.example.skbnetwork;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,34 +9,33 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import java.util.ArrayList;
 
-public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapter
-        <ModelClientSiteWorkTypeItemSubItemQuantityMaster, MyAdopterForPurchaseItemStatusAtSite.myViewHolder> {
+public class MyAdopterForPendingPurchaseForSiteForPO extends RecyclerView.Adapter <MyAdopterForPendingPurchaseForSiteForPO.myViewHolder>{
 
-    String action;
+    Context context;
+    ArrayList<ModelClientSiteWorkTypeItemSubItemQuantityMaster> alist;
 
-    int AdditionalCurrentDemand;
-    int AdditionalReceivedQuantity;
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     * @param menuName
-     */
-    public MyAdopterForPurchaseItemStatusAtSite(@NonNull FirebaseRecyclerOptions<ModelClientSiteWorkTypeItemSubItemQuantityMaster> options, String menuName) {
-        super(options);
-        action = menuName;
+    public MyAdopterForPendingPurchaseForSiteForPO(ArrayList<ModelClientSiteWorkTypeItemSubItemQuantityMaster> array) {
+        this.context = context;
+        this.alist = array;
+    }
+
+    @NonNull
+    @Override
+    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext()).
+                inflate(R.layout.singlerowforpendingpurchaseforsiteforpo, parent, false);
+        return new myViewHolder(view);
 
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull MyAdopterForPurchaseItemStatusAtSite.myViewHolder holder,
-                                    int position, @NonNull ModelClientSiteWorkTypeItemSubItemQuantityMaster model) {
+    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
 
+        ModelClientSiteWorkTypeItemSubItemQuantityMaster model = alist.get(position);
 
         holder.itemDetails.setText(model.getdMCSWTISIQMItemCategory()+model.getdMCSWTISIQMSubItem());
         holder.demandDetails.setText(String.valueOf(model.getTotalDemand()));
@@ -56,16 +56,12 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
         holder.pendingPurchaseQuantity.setText(String.valueOf(model.getCurrentPurchased()));
         holder.demandPendingApproval.setText(String.valueOf(model.getCurrentDemand()).toString().trim());
         holder.searchkey2.setText(model.getdMCSWTISIQMSearchKey2());
+
     }
 
-    @NonNull
     @Override
-    public MyAdopterForPurchaseItemStatusAtSite.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowforpurchaseitemstatusatsitewithinprogressqty,
-                parent, false);
-
-        return new myViewHolder(view);
+    public int getItemCount() {
+        return alist.size();
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
@@ -75,8 +71,9 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
         TextView demandPendingApproval, addAdditionalDemand, searchkey2;
         TextView totalReceivedQuantity;
 
-           public myViewHolder(@NonNull View itemView) {
+        public myViewHolder(@NonNull View itemView) {
             super(itemView);
+
             itemDetails = itemView.findViewById(R.id.textView62);
             demandDetails = itemView.findViewById(R.id.editTextNumber12);
             totalPendingPurchaseQuantity = itemView.findViewById(R.id.editTextNumber13);
@@ -86,7 +83,7 @@ public class MyAdopterForPurchaseItemStatusAtSite extends FirebaseRecyclerAdapte
             inProgressPurchaseQty = itemView.findViewById(R.id.editTextNumber17);
             addAdditionalDemand = itemView.findViewById(R.id.textView90);
             searchkey2 = itemView.findViewById(R.id.textView91);
+
         }
     }
-
 }

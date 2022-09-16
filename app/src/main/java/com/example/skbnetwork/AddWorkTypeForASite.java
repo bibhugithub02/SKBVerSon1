@@ -134,6 +134,14 @@ public class AddWorkTypeForASite extends AppCompatActivity {
 
         dbr.child(dMAWTTWMCClient_Site_WorkType).setValue(obj);
 
+        //Write to monitoring DB ModelForMonitoring
+
+        ModelForMonitoring m = new ModelForMonitoring();
+        m.writeToDB(timeStamp,"AddWorkTypeForASite",dMAWTTWMCClient_SiteName,
+                "ModelAddWorkTypeToWorkMaster","Add Record",
+                dMAWTTWMCClient_Site_WorkType);
+
+
         Toast.makeText(AddWorkTypeForASite.this, "New Client Added Successfully", Toast.LENGTH_SHORT).show();
 
 

@@ -39,8 +39,8 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        recyclerView=findViewById(R.id.recyclerView5);
 
+        recyclerView=findViewById(R.id.recyclerView5);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         if(menuName.equals("MAM")){

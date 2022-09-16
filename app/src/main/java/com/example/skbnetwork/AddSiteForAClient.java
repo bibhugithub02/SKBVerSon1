@@ -127,6 +127,14 @@ public class AddSiteForAClient extends AppCompatActivity {
 
         dbr.child(uniquekey).setValue(obj);
 
+        //Write to monitoring DB ModelForMonitoring
+
+        ModelForMonitoring m = new ModelForMonitoring();
+        m.writeToDB(timeStamp,"AddSiteForAClient",dMTASFClientName,
+                "ModelToAddSiteForAClient","Add Record",
+                dMTASFSiteName);
+
+
         Toast.makeText(AddSiteForAClient.this, "New Client Added Successfully", Toast.LENGTH_SHORT).show();
 
     }

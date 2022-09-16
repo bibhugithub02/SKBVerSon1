@@ -61,7 +61,12 @@ public class PurchaseItemStatusAtSite extends AppCompatActivity {
         clientNamev.setText("Client   : "+ clientName);
         siteNamev.setText("Site      : " +siteName);
         workTypev.setText("Work Type : "+workType);
-        searchkey = clientName.toString().trim() +"_"+siteName.toString().trim()+"_"+workType.toString().trim();
+        if(siteName.isEmpty()){
+            searchkey = clientName.toString().trim();
+        }else{
+            searchkey = clientName.toString().trim() +"_"+siteName.toString().trim()+"_"+workType.toString().trim();
+        }
+
         recyclerView=findViewById(R.id.recyclerView07);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

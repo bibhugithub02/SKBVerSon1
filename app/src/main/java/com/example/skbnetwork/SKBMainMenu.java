@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 public class SKBMainMenu extends AppCompatActivity {
 
-    TextView ConfigurationOption, HeadOfficeMenu, SiteOfficeMenu, StoreMenu, StokeInHand, Quit;
+    TextView ConfigurationOption, HeadOfficeMenu, SiteOfficeMenu, StoreMenu, StockReport, Quit;
     String menuName, clientSiteName;
-    ImageView ConfigurationOptionImage, HeadOfficeMenuImage, SiteOfficeMenuImage, StoreMenuImage, QuitImage;
+    ImageView ConfigurationOptionImage, HeadOfficeMenuImage, SiteOfficeMenuImage, StoreMenuImage, StockReportImage, QuitImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,8 @@ public class SKBMainMenu extends AppCompatActivity {
         HeadOfficeMenu = findViewById(R.id.textView2);
         SiteOfficeMenu = findViewById(R.id.textView3);
         StoreMenu = findViewById(R.id.textView4);
+        StockReport = findViewById(R.id.textView88);
+
      //   StokeInHand = findViewById(R.id.textView5);
         Quit = findViewById(R.id.textView6);
 
@@ -34,6 +36,7 @@ public class SKBMainMenu extends AppCompatActivity {
         HeadOfficeMenuImage = findViewById(R.id.imageView13);
         SiteOfficeMenuImage = findViewById(R.id.imageView14);
         StoreMenuImage = findViewById(R.id.imageView15);
+        StockReportImage = findViewById(R.id.imageView32);
         QuitImage = findViewById(R.id.imageView16);
 
         //Set the orientation to Portrait for this screen
@@ -131,20 +134,36 @@ public class SKBMainMenu extends AppCompatActivity {
 
 
 
-//        StokeInHand.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String action = "SIH";
-//                menuName = "MAM";
-//                clientSiteName="";
-//                Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
-//                i.putExtra("menu",menuName);
-//                i.putExtra("menuOption",action);
-//                i.putExtra("clientsitename",clientSiteName);
-//                startActivity(i);
-//
-//            }
-//        });
+        StockReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String action = "SIH";
+                menuName = "MAM";
+                clientSiteName="";
+                Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",action);
+                i.putExtra("clientsitename",clientSiteName);
+                startActivity(i);
+
+            }
+        });
+
+        StockReportImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String action = "SIH";
+                menuName = "MAM";
+                clientSiteName="";
+                Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
+                i.putExtra("menu",menuName);
+                i.putExtra("menuOption",action);
+                i.putExtra("clientsitename",clientSiteName);
+                startActivity(i);
+
+            }
+        });
+
 
 
         Quit.setOnClickListener(new View.OnClickListener() {

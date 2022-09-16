@@ -227,6 +227,14 @@ public class AddItemToItemMasterView<onActivityResult> extends AppCompatActivity
         ModelItemMaster obj = new ModelItemMaster(dtMIMItemName,dtMIMItemUrl,dtMIMEnterDate,dtMIMAddedBy);
         db.child(multiLineText01.trim() +"_SKB_" + "JPEG").setValue(obj);
 
+        //Write to monitoring DB ModelForMonitoring
+
+        ModelForMonitoring m = new ModelForMonitoring();
+        m.writeToDB(timeStamp,"AddItemToItemMasterView",dtMIMItemName,
+                "ModelItemMaster","Add Record",
+                dtMIMItemUrl);
+
+
     }
 
     // Take picture using Camera

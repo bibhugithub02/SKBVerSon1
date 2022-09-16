@@ -114,6 +114,15 @@ public class AddNewClientToMaster extends AppCompatActivity {
 
         dbr.child(dMCMClientName).setValue(obj);
 
+        //Write to monitoring DB ModelForMonitoring
+
+        ModelForMonitoring m = new ModelForMonitoring();
+        m.writeToDB(timeStamp,"AddNewClientToMaster",dMCMClientName,
+                "ModelClientMaster","Add Record",
+                "");
+
+
+
         Toast.makeText(AddNewClientToMaster.this, "New Client added successfully", Toast.LENGTH_SHORT).show();
 
     }

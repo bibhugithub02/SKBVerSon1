@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class ConfigurationMenu extends AppCompatActivity {
 
-    TextView employeeAccess, LoginDemoScreen, OpenForNow, Quit;
-    ImageView employeeAccessI, LoginDemoScreenI, OpenForNowI, QuitI;
+    TextView employeeAccess, LoginDemoScreen, OpenForNow, AppMonitoring, Quit;
+    ImageView employeeAccessI, LoginDemoScreenI, OpenForNowI, AppMonitoringI, QuitI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,13 @@ public class ConfigurationMenu extends AppCompatActivity {
         employeeAccess = findViewById(R.id.textView130);
         LoginDemoScreen = findViewById(R.id.textView131);
         OpenForNow = findViewById(R.id.textView132);
+        AppMonitoring = findViewById(R.id.textView87);
         Quit = findViewById(R.id.textView6);
 
         employeeAccessI = findViewById(R.id.imageView28);
         LoginDemoScreenI = findViewById(R.id.imageView29);
         OpenForNowI = findViewById(R.id.imageView30);
+        AppMonitoringI = findViewById(R.id.imageView31);
         QuitI = findViewById(R.id.textView133);
 
 
@@ -99,6 +101,22 @@ public class ConfigurationMenu extends AppCompatActivity {
                 Intent i = new Intent(ConfigurationMenu.this, ApplicationTestingProgram.class); // Test program
                 startActivity(i); //NotDeliveredOn1stSep2022
 
+            }
+        });
+
+        AppMonitoring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ConfigurationMenu.this, ApplicationManitoringLog.class);
+                startActivity(i);
+            }
+        });
+
+        AppMonitoringI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ConfigurationMenu.this, ApplicationManitoringLog.class);
+                startActivity(i);
             }
         });
 

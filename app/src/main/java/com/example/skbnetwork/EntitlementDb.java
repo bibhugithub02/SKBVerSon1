@@ -330,6 +330,13 @@ public class EntitlementDb extends AppCompatActivity {
         ModelEntitlementDb obj = new ModelEntitlementDb(name,phNumber,clientName,siteNme,menuName, dateStamp, Filler01, Filler02, Filler03, Filler04);
         dbr.child(phNumber + clientName + siteNme).setValue(obj);
 
+        //Write to monitoring DB ModelForMonitoring
+
+        ModelForMonitoring m = new ModelForMonitoring();
+        m.writeToDB(dateStamp,"MyAdopterForaddSubCategoryItems",name,
+                "ModelEntitlementDb","Add Record",
+                Filler01);
+
     }
 
 
