@@ -57,7 +57,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
             holder.addItemCategory.setText("Add Quantity"); // Store Menu -- > Quantity Received
         } else if (action1.equals("AQ")) {
             holder.addItemCategory.setText("Add Quantity"); // Site menu --> Additional qty
-        } else if (action1.equals("SIH")) {
+        } else if ((action1.equals("SIH")) || (action1.equals("SIHR"))) {
             holder.addItemCategory.setText("Stoke View"); // Stock in hand from different menu
         } else if (action1.equals("DI")) {
             holder.addItemCategory.setText("Issue Qty"); // store Menu
@@ -145,7 +145,7 @@ public class MyAdopterForClientSiteWorkTypeRecyclerViewToReceiveQuantity extends
                     clientName.getContext().startActivity(i);
                    }
 
-                    if ((action1.equals("SIH")) || (action1.equals("DI")) || (action1.equals("DR"))){
+                    if ((action1.equals("SIH")) || (action1.equals("DI")) || (action1.equals("DR")) || (action1.equals("SIHR")) ){
                        Intent stokeInHand = new Intent(itemView.getContext(),DemandItemStatusAtSite.class );
                         // Parameter used when called from Store Menu Option
                         //Site menu then Choose the Site then Choose the Item Category and then Item Sub Category to add the Qty

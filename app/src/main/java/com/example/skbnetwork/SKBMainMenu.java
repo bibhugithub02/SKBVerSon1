@@ -137,7 +137,7 @@ public class SKBMainMenu extends AppCompatActivity {
         StockReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String action = "SIH";
+                String action = "SIHR";
                 menuName = "MAM";
                 clientSiteName="";
                 Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);
@@ -152,7 +152,7 @@ public class SKBMainMenu extends AppCompatActivity {
         StockReportImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String action = "SIH";
+                String action = "SIHR";
                 menuName = "MAM";
                 clientSiteName="";
                 Intent i = new Intent(SKBMainMenu.this, ClientSiteWorkTypeRecyclerViewToReceiveQuantity.class);

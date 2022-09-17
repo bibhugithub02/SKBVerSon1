@@ -21,16 +21,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView61"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:hint="Menu"
-            android:padding="1dp"
-            android:textSize="22dp" />
-
-        <TextView
             android:id="@+id/textView58"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,12 +51,29 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView06"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="555dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView61"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_rounded_blue"
+        android:gravity="center"
+        android:padding="5dp"
+        android:fontFamily="@font/adamina"
+        android:textColor="@color/white"
+        android:text="Generate Report"
+        android:textSize="22dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
