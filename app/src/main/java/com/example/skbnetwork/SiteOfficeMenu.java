@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 public class SiteOfficeMenu extends AppCompatActivity {
 
-    TextView siteEmployeeMaster, getSiteEmployeeDetails, demand_StokeInHand,
+    TextView siteEmployeeMaster, getSiteEmployeeDetails, demand_StokeInHand,standardDemand,
             raiseAdditionalDemand, pendingPurchase, purchaseRequest,billableItems, quit;
     String menuName, clientSiteName;
-    ImageView siteEmployeeMasterI, getSiteEmployeeDetailsI, demand_StokeInHandI,
+    ImageView siteEmployeeMasterI, getSiteEmployeeDetailsI, demand_StokeInHandI,standardDemandI,
             raiseAdditionalDemandI, pendingPurchaseI, purchaseRequestI,billableItemsI, quitI;
     String menuOption;
 
@@ -35,6 +35,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
         pendingPurchase = findViewById(R.id.textView134);
         purchaseRequest = findViewById(R.id.textView135);
         billableItems = findViewById(R.id.textView77);
+        standardDemand = findViewById(R.id.textView114);
         quit = findViewById(R.id.textView80);
 
         siteEmployeeMasterI = findViewById(R.id.imageView7);
@@ -44,6 +45,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
         pendingPurchaseI = findViewById(R.id.imageView20);
         purchaseRequestI = findViewById(R.id.imageView21);
         billableItemsI = findViewById(R.id.imageView22);
+        standardDemandI = findViewById(R.id.imageView33);
         quitI = findViewById(R.id.imageView16);
 
 
@@ -51,12 +53,15 @@ public class SiteOfficeMenu extends AppCompatActivity {
         clientSiteName = getIntent().getStringExtra("clientsitename").toString();
 
 
+        //Review Stock in Hand
+
         demand_StokeInHand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
                 i.putExtra("menu",menuName); // Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("clientsitename",clientSiteName);//need to populate this for particular client site
+                i.putExtra("option","SIH");// What option we are choosing
                 startActivity(i);
 
             }
@@ -68,6 +73,33 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
                 i.putExtra("menu",menuName); // Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("clientsitename",clientSiteName);//need to populate this for particular client site
+                i.putExtra("option","SIH");// What option we are choosing
+                startActivity(i);
+
+            }
+        });
+
+        //Enter Standard Demand
+
+        standardDemand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
+                i.putExtra("menu",menuName); // Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
+                i.putExtra("clientsitename",clientSiteName);//need to populate this for particular client site
+                i.putExtra("option","STDD");// What option we are choosing
+                startActivity(i);
+
+            }
+        });
+
+        standardDemandI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SiteOfficeMenu.this, ClientSiteWorkTypeRecyclerView.class);
+                i.putExtra("menu",menuName); // Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
+                i.putExtra("clientsitename",clientSiteName);//need to populate this for particular client site
+                i.putExtra("option","STDD");// What option we are choosing
                 startActivity(i);
 
             }
@@ -85,7 +117,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                startActivity(i);
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
 
             }
@@ -100,7 +132,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                startActivity(i);
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
 
             }
@@ -116,7 +148,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                startActivity(i);
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
 
             }
@@ -129,7 +161,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                startActivity(i);
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
 
             }

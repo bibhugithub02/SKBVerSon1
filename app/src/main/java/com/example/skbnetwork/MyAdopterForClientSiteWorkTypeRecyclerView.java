@@ -15,15 +15,17 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecyclerAdapter
         <ModelAddWorkTypeToWorkMaster, MyAdopterForClientSiteWorkTypeRecyclerView.myViewHolder> {
 
-
+    String OptionName;
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
      *
      * @param options
+     * @param optionName
      */
-    public MyAdopterForClientSiteWorkTypeRecyclerView(@NonNull FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options) {
+    public MyAdopterForClientSiteWorkTypeRecyclerView(@NonNull FirebaseRecyclerOptions<ModelAddWorkTypeToWorkMaster> options, String optionName) {
         super(options);
+        this.OptionName = optionName;
     }
 
     @Override
@@ -32,6 +34,12 @@ public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecycler
         holder.clientName.setText(model.getdMAWTTWMClientName());
         holder.siteName.setText(model.getdMAWTTWMCSiteName());
         holder.workType.setText(model.getdMAWTTWMCWorkTypeName());
+
+        if (OptionName.equals("STDD")){
+            holder.addItemCategory.setVisibility(View.VISIBLE);
+        }else{
+            holder.viewItemAtSite.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -59,6 +67,8 @@ public class MyAdopterForClientSiteWorkTypeRecyclerView extends FirebaseRecycler
             workType = itemView.findViewById(R.id.textView33);
             addItemCategory = itemView.findViewById(R.id.textView34);
             viewItemAtSite = itemView.findViewById(R.id.textView57);
+
+
 
             addItemCategory.setOnClickListener(new View.OnClickListener() {
                 @Override

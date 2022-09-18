@@ -10,6 +10,7 @@ import android.Manifest;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
@@ -27,8 +28,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
 import com.itextpdf.layout.element.Table;
@@ -163,12 +166,18 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
                 Table tableHeader = new Table(columnwidth);
                 Table tabledetails = new Table(columnwidth);
 
-                tableHeader.addCell("Item Description");
-                tableHeader.addCell("Demand");
-                tableHeader.addCell("Purchased");
-                tableHeader.addCell("Pending");
-                tableHeader.addCell("Used");
-                tableHeader.addCell("SIH");
+               // tableHeader.addCell("Item Description")
+                tableHeader.addCell(new Cell().add(new Paragraph("Item Description")).setBackgroundColor(ColorConstants.YELLOW));
+                tableHeader.addCell(new Cell().add(new Paragraph("Demand")).setBackgroundColor(ColorConstants.YELLOW));
+                tableHeader.addCell(new Cell().add(new Paragraph("Purchased")).setBackgroundColor(ColorConstants.YELLOW));
+                tableHeader.addCell(new Cell().add(new Paragraph("Pending")).setBackgroundColor(ColorConstants.YELLOW));
+                tableHeader.addCell(new Cell().add(new Paragraph("Used")).setBackgroundColor(ColorConstants.YELLOW));
+                tableHeader.addCell(new Cell().add(new Paragraph("SIH")).setBackgroundColor(ColorConstants.YELLOW));
+//                tableHeader.addCell("Demand");
+//                tableHeader.addCell("Purchased");
+//                tableHeader.addCell("Pending");
+//                tableHeader.addCell("Used");
+//                tableHeader.addCell("SIH");
 
 
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -179,21 +188,24 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
                             for(DataSnapshot ds : snapshot.getChildren()){
 
                                 tableHeader.addCell(ds.child("dMCSWTISIQMItemCategory").getValue().toString());
+                                int Dmd = Integer.parseInt(ds.child("totalDemand").getValue().toString());
                                 tableHeader.addCell(ds.child("totalDemand").getValue().toString());
                                 tableHeader.addCell(ds.child("totalReceived").getValue().toString());
-                                tableHeader.addCell(ds.child("totalPurchased").getValue().toString());
-                                tableHeader.addCell(ds.child("totalPurchased").getValue().toString());
+                                tableHeader.addCell(String.valueOf(Integer.parseInt(ds.child("totalDemand").getValue().toString())-
+                                        Integer.parseInt(ds.child("totalReceived").getValue().toString())));
+                                tableHeader.addCell(String.valueOf(Integer.parseInt(ds.child("totalReceived").getValue().toString())-
+                                        Integer.parseInt(ds.child("stokeInHand").getValue().toString())));
                                 tableHeader.addCell(ds.child("stokeInHand").getValue().toString());
                                 i = i+1;
                                 J = J+1;
 
                                 if((i==31 && i == J) || (i==33 && i != J)){
-                                    tableHeader.addCell("Item Description");
-                                    tableHeader.addCell("Demand");
-                                    tableHeader.addCell("Purchased");
-                                    tableHeader.addCell("Pending");
-                                    tableHeader.addCell("Used");
-                                    tableHeader.addCell("SIH");
+                                    tableHeader.addCell(new Cell().add(new Paragraph("Item Description")).setBackgroundColor(ColorConstants.YELLOW));
+                                    tableHeader.addCell(new Cell().add(new Paragraph("Demand")).setBackgroundColor(ColorConstants.YELLOW));
+                                    tableHeader.addCell(new Cell().add(new Paragraph("Purchased")).setBackgroundColor(ColorConstants.YELLOW));
+                                    tableHeader.addCell(new Cell().add(new Paragraph("Pending")).setBackgroundColor(ColorConstants.YELLOW));
+                                    tableHeader.addCell(new Cell().add(new Paragraph("Used")).setBackgroundColor(ColorConstants.YELLOW));
+                                    tableHeader.addCell(new Cell().add(new Paragraph("SIH")).setBackgroundColor(ColorConstants.YELLOW));
                                     i=0;
                                 }
 

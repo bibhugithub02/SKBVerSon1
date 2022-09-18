@@ -17,6 +17,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="1dp"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -27,10 +28,9 @@
                 <ImageView
                     android:id="@+id/imageView28"
                     android:layout_width="18dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_margin="01dp"
                     android:layout_weight="1.2"
-                    android:padding="1dp"
                     app:srcCompat="@drawable/access" />
 
                 <TextView
@@ -40,7 +40,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/adamina"
-                    android:text="   Access Control"
+                    android:text="   Access Control "
                     android:textSize="25dp" />
 
             </LinearLayout>
@@ -53,7 +53,7 @@
                 <ImageView
                     android:id="@+id/imageView29"
                     android:layout_width="18dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_margin="01dp"
                     android:layout_weight="1"
                     android:padding="1dp"
@@ -66,7 +66,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/adamina"
-                    android:text="    Login demo   "
+                    android:text="    Login demo     "
                     android:textSize="25dp"/>
             </LinearLayout>
 
@@ -78,7 +78,7 @@
                 <ImageView
                     android:id="@+id/imageView30"
                     android:layout_width="18dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_margin="01dp"
                     android:layout_weight="1"
                     android:padding="1dp"
@@ -91,8 +91,34 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/adamina"
-                    android:text="    Test Program"
+                    android:text="    Test Program  "
                     android:textSize="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView302"
+                    android:layout_width="18dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="01dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    app:srcCompat="@drawable/testing" />
+
+                <TextView
+                    android:id="@+id/textView1322"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/adamina"
+                    android:text="    Test Program2"
+                    android:textSize="25dp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +130,7 @@
                 <ImageView
                     android:id="@+id/imageView31"
                     android:layout_width="18dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_margin="01dp"
                     android:layout_weight="1.6"
                     android:padding="1dp"
@@ -117,7 +143,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/adamina"
-                    android:text="    App Monitoring"
+                    android:text="    App Monitoring "
                     android:textSize="25dp" />
             </LinearLayout>
 
@@ -130,7 +156,7 @@
                 <ImageView
                     android:id="@+id/textView133"
                     android:layout_width="18dp"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_margin="01dp"
                     android:layout_weight=".9"
                     android:padding="1dp"
@@ -143,7 +169,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/adamina"
-                    android:text="    Quit                "
+                    android:text="    Quit                 "
                     android:textSize="25dp" />
 
             </LinearLayout>

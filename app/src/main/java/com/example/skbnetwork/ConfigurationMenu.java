@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class ConfigurationMenu extends AppCompatActivity {
 
-    TextView employeeAccess, LoginDemoScreen, OpenForNow, AppMonitoring, Quit;
-    ImageView employeeAccessI, LoginDemoScreenI, OpenForNowI, AppMonitoringI, QuitI;
+    TextView employeeAccess, LoginDemoScreen, OpenForNow, testing02, AppMonitoring, Quit;
+    ImageView employeeAccessI, LoginDemoScreenI, OpenForNowI, testing02I, AppMonitoringI, QuitI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,14 @@ public class ConfigurationMenu extends AppCompatActivity {
         employeeAccess = findViewById(R.id.textView130);
         LoginDemoScreen = findViewById(R.id.textView131);
         OpenForNow = findViewById(R.id.textView132);
+        testing02 = findViewById(R.id.textView1322);
         AppMonitoring = findViewById(R.id.textView87);
         Quit = findViewById(R.id.textView6);
 
         employeeAccessI = findViewById(R.id.imageView28);
         LoginDemoScreenI = findViewById(R.id.imageView29);
         OpenForNowI = findViewById(R.id.imageView30);
+        testing02I = findViewById(R.id.imageView302);
         AppMonitoringI = findViewById(R.id.imageView31);
         QuitI = findViewById(R.id.textView133);
 
@@ -44,7 +46,7 @@ public class ConfigurationMenu extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ConfigurationMenu.this, EntitlementDb.class);  // Build the access for User
-                startActivity(i); //NotDeliveredOn1stSep2022
+                startActivity(i);
 
             }
         });
@@ -54,7 +56,7 @@ public class ConfigurationMenu extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ConfigurationMenu.this, EntitlementDb.class);  // Build the access for User
-                startActivity(i); //NotDeliveredOn1stSep2022
+                startActivity(i);
 
             }
         });
@@ -66,7 +68,7 @@ public class ConfigurationMenu extends AppCompatActivity {
                 Intent i = new Intent(ConfigurationMenu.this, LoginScreenOne.class);  // Login screen for OTP
                 //Intent i = new Intent(SKBMainMenu.this, EntitlementDb.class); // TO add access record
                 // Intent i = new Intent(SKBMainMenu.this, ApplicationTestingProgram.class); // Test program
-                startActivity(i); //NotDeliveredOn1stSep2022
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
             }
         });
@@ -79,7 +81,7 @@ public class ConfigurationMenu extends AppCompatActivity {
                 Intent i = new Intent(ConfigurationMenu.this, LoginScreenOne.class);  // Login screen for OTP
                 //Intent i = new Intent(SKBMainMenu.this, EntitlementDb.class); // TO add access record
                 // Intent i = new Intent(SKBMainMenu.this, ApplicationTestingProgram.class); // Test program
-                startActivity(i); //NotDeliveredOn1stSep2022
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
             }
         });
@@ -89,7 +91,7 @@ public class ConfigurationMenu extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ConfigurationMenu.this, ApplicationTestingProgram.class); // Test program
-                startActivity(i); //NotDeliveredOn1stSep2022
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
             }
         });
@@ -99,16 +101,33 @@ public class ConfigurationMenu extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ConfigurationMenu.this, ApplicationTestingProgram.class); // Test program
-                startActivity(i); //NotDeliveredOn1stSep2022
+                //NotDeliveredOn18thSep2022 startActivity(i);
 
             }
         });
+
+        testing02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ConfigurationMenu.this, ApplicationTestingProgram02.class); // Test program
+                //NotDeliveredOn18thSep2022 startActivity(i);
+            }
+        });
+
+        testing02I.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ConfigurationMenu.this, ApplicationTestingProgram02.class); // Test program
+                //NotDeliveredOn18thSep2022 startActivity(i);
+            }
+        });
+
 
         AppMonitoring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ConfigurationMenu.this, ApplicationManitoringLog.class);
-                startActivity(i);
+                //NotDeliveredOn18thSep2022 startActivity(i);
             }
         });
 
@@ -116,7 +135,7 @@ public class ConfigurationMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ConfigurationMenu.this, ApplicationManitoringLog.class);
-                startActivity(i);
+                //NotDeliveredOn18thSep2022 startActivity(i);
             }
         });
 

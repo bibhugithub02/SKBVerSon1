@@ -23,7 +23,7 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
     MyAdopterForClientSiteWorkTypeRecyclerView myAdopterForClientSiteWorkTypeRecyclerView;
     RecyclerView recyclerView;
     Query query;
-    String menuName,clientSiteName;
+    String menuName,clientSiteName, optionName;
     String searchClientSite;
 
     @Override
@@ -36,6 +36,7 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
 
         menuName = getIntent().getStringExtra("menu").toString();
         clientSiteName = getIntent().getStringExtra("clientsitename").toString();
+        optionName = getIntent().getStringExtra("option").toString();
 
         //Set the orientation to Portrait for this screen
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -57,7 +58,7 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
                         .setQuery(query, ModelAddWorkTypeToWorkMaster.class)
                         .build();
 
-        myAdopterForClientSiteWorkTypeRecyclerView = new MyAdopterForClientSiteWorkTypeRecyclerView(options);
+        myAdopterForClientSiteWorkTypeRecyclerView = new MyAdopterForClientSiteWorkTypeRecyclerView(options, optionName);
         recyclerView.setAdapter(myAdopterForClientSiteWorkTypeRecyclerView);
 
     }
@@ -112,7 +113,7 @@ public class ClientSiteWorkTypeRecyclerView extends AppCompatActivity {
                         .setQuery(query, ModelAddWorkTypeToWorkMaster.class)
                         .build();
 
-        myAdopterForClientSiteWorkTypeRecyclerView = new MyAdopterForClientSiteWorkTypeRecyclerView(options);
+        myAdopterForClientSiteWorkTypeRecyclerView = new MyAdopterForClientSiteWorkTypeRecyclerView(options, optionName);
         myAdopterForClientSiteWorkTypeRecyclerView.startListening();
         recyclerView.setAdapter(myAdopterForClientSiteWorkTypeRecyclerView);
 

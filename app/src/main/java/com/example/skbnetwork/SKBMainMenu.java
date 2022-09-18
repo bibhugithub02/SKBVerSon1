@@ -47,7 +47,7 @@ public class SKBMainMenu extends AppCompatActivity {
             public void onClick(View v) {
 
               Intent i = new Intent(SKBMainMenu.this, ConfigurationMenu.class);  // Login screen for OTP
-              startActivity(i); //NotDeliveredOn1stAug2022
+              startActivity(i);
 
             }
         });
@@ -57,7 +57,7 @@ public class SKBMainMenu extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(SKBMainMenu.this, ConfigurationMenu.class);  // Login screen for OTP
-                startActivity(i); //NotDeliveredOn1stAug2022
+                startActivity(i);
 
             }
         });

@@ -51,10 +51,11 @@
             android:layout_marginLeft="215dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_rounded_blue"
-            android:textColor="@color/white"
             android:gravity="center"
             android:padding="2dp"
             android:text="Add Item To Site"
+            android:visibility="invisible"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold|italic" />
 
@@ -69,6 +70,7 @@
             android:gravity="center"
             android:padding="2dp"
             android:text="View Item at Site"
+            android:visibility="invisible"
             android:textSize="16sp"
             android:textStyle="bold|italic" />
 
