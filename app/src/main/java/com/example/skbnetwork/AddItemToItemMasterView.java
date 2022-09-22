@@ -58,6 +58,7 @@ public class AddItemToItemMasterView<onActivityResult> extends AppCompatActivity
     Uri localImageUri, firebaseUri;
     InputStream inputStream;
     byte[] data1;
+
     ProgressDialog dialog;
     FirebaseStorage storage;
     StorageReference uploader;
