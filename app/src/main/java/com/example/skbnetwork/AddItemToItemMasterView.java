@@ -53,7 +53,7 @@ public class AddItemToItemMasterView<onActivityResult> extends AppCompatActivity
     ImageView imageView;
     EditText multiLineText;
     ImageButton imageButton;
-    TextView addButton, clearButton;
+    TextView addButton, clearButton, clearButton01;
 
     Uri localImageUri, firebaseUri;
     InputStream inputStream;
