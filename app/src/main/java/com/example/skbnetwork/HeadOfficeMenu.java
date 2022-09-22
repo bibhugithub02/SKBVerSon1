@@ -124,7 +124,7 @@ public class HeadOfficeMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HeadOfficeMenu.this, PurchaseMenu.class);
-                startActivity(i); //NotDeliveredOn18thSep2022
+                //NotDeliveredOn18thSep2022 startActivity(i); //NotDeliveredOn18thSep2022
 
             }
         });
@@ -133,7 +133,7 @@ public class HeadOfficeMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HeadOfficeMenu.this, PurchaseMenu.class);
-                startActivity(i); //NotDeliveredOn18thSep2022
+                //NotDeliveredOn18thSep2022 startActivity(i); //NotDeliveredOn18thSep2022
 
             }
         });
