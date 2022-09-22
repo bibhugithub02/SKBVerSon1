@@ -158,8 +158,8 @@ public class addSubCategoryItems extends AppCompatActivity {
         //Write to monitoring DB ModelForMonitoring
 
         ModelForMonitoring m = new ModelForMonitoring();
-        m.writeToDB(timeStamp,"addSubCategoryItems",dMSCIMItemName,
-                "ModelSubCategoryItemMaster","Add Record",
+        m.writeToMonioringDB(timeStamp,"Action : addSubCategoryItems",dMSCIMItemName,
+                "DataBase : ModelSubCategoryItemMaster","Add Record",
                 dMSCIMSubCategoryItemName);
 
 

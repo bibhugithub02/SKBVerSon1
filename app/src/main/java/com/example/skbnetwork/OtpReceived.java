@@ -27,6 +27,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class OtpReceived extends AppCompatActivity {
 
     EditText n1,n2,n3,n4,n5,n6;
@@ -34,7 +37,7 @@ public class OtpReceived extends AppCompatActivity {
     TextView msg;
     TextView submit;
     String str;
-    String menuName, clientSiteName;
+    String menuName, clientSiteName,userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +98,9 @@ public class OtpReceived extends AppCompatActivity {
                                                         str = ds.child("menuName").getValue().toString();
                                                         clientSiteName=ds.child("siteNme").getValue().toString();
                                                         clientSiteName = clientSiteName.replace("_","+");
+                                                        userName = ds.child("name").getValue().toString();
+                                                    //Write to Monitoring DataBase
+                                                    writeToMonitoringDataBase();
 
                                                         //MAM : - Master Menu
                                                     if(str.equals("MAM")){
@@ -153,6 +159,14 @@ public class OtpReceived extends AppCompatActivity {
                                                 System.exit(0);
                                             }
 
+                                        }
+
+                                        private void writeToMonitoringDataBase() {
+                                            //Write to monitoring DB ModelForMonitoring
+                                            ModelForMonitoring m = new ModelForMonitoring();
+                                            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                                            m.writeToMonioringDB(timeStamp,str ,clientSiteName,"",
+                                                    "Login","Action : User "+userName+" / "+ phNumber1 +" Logged in to menu "+ str);
                                         }
 
                                         @Override

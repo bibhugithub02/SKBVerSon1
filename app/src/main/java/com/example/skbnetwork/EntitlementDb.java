@@ -321,20 +321,21 @@ public class EntitlementDb extends AppCompatActivity {
             menuName = " ";
         }
 
-        String dateStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());;
+        String dateStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String Filler01 = phNumber + clientName + siteNme;
         String Filler02="";
         String Filler03="";
         String Filler04="";
 
         ModelEntitlementDb obj = new ModelEntitlementDb(name,phNumber,clientName,siteNme,menuName, dateStamp, Filler01, Filler02, Filler03, Filler04);
-        dbr.child(phNumber + clientName + siteNme).setValue(obj);
+        dbr.child(phNumber).setValue(obj);
+       // dbr.child(phNumber + clientName + siteNme).setValue(obj);
 
         //Write to monitoring DB ModelForMonitoring
 
         ModelForMonitoring m = new ModelForMonitoring();
-        m.writeToDB(dateStamp,"MyAdopterForaddSubCategoryItems",name,
-                "ModelEntitlementDb","Add Record",
+        m.writeToMonioringDB(dateStamp,"Action : Entry to Entitlement DB",name,
+                "DataBase: ModelEntitlementDb","Add Record",
                 Filler01);
 
     }

@@ -220,8 +220,8 @@ public class MyAdopterForaddSubCategoryItems extends FirebaseRecyclerAdapter
            //Write to monitoring DB ModelForMonitoring
 
                     ModelForMonitoring m = new ModelForMonitoring();
-                    m.writeToDB(timeStamp,"MyAdopterForaddSubCategoryItems",dMCSWTISIQMSearchKey1,
-                            "ModelClientSiteWorkTypeItemSubItemQuantityMaster","Add Record",
+                    m.writeToMonioringDB(timeStamp,"Action : MyAdopterForaddSubCategoryItems",dMCSWTISIQMSearchKey1,
+                            "DataBase : ModelClientSiteWorkTypeItemSubItemQuantityMaster","Add Record",
                             dMCSWTISIQMSearchKey2);
 
                 }

@@ -117,8 +117,8 @@ public class AddNewClientToMaster extends AppCompatActivity {
         //Write to monitoring DB ModelForMonitoring
 
         ModelForMonitoring m = new ModelForMonitoring();
-        m.writeToDB(timeStamp,"AddNewClientToMaster",dMCMClientName,
-                "ModelClientMaster","Add Record",
+        m.writeToMonioringDB(timeStamp,"Action : AddNewClientToMaster",dMCMClientName,
+                "DataBase : ModelClientMaster","Add Record",
                 "");
 
 

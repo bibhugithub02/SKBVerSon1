@@ -137,8 +137,8 @@ public class AddWorkTypeForASite extends AppCompatActivity {
         //Write to monitoring DB ModelForMonitoring
 
         ModelForMonitoring m = new ModelForMonitoring();
-        m.writeToDB(timeStamp,"AddWorkTypeForASite",dMAWTTWMCClient_SiteName,
-                "ModelAddWorkTypeToWorkMaster","Add Record",
+        m.writeToMonioringDB(timeStamp,"Action : AddWorkTypeForASite",dMAWTTWMCClient_SiteName,
+                "DataBase : ModelAddWorkTypeToWorkMaster","Add Record",
                 dMAWTTWMCClient_Site_WorkType);
 
 

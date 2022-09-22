@@ -230,8 +230,8 @@ public class AddItemToItemMasterView<onActivityResult> extends AppCompatActivity
         //Write to monitoring DB ModelForMonitoring
 
         ModelForMonitoring m = new ModelForMonitoring();
-        m.writeToDB(timeStamp,"AddItemToItemMasterView",dtMIMItemName,
-                "ModelItemMaster","Add Record",
+        m.writeToMonioringDB(timeStamp,"Action : AddItemToItemMasterView",dtMIMItemName,
+                "DataBase : ModelItemMaster","Add Record",
                 dtMIMItemUrl);
 
 

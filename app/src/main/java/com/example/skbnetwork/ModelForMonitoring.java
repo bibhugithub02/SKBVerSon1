@@ -87,7 +87,7 @@ public class ModelForMonitoring {
                 '}';
     }
 
-    public void writeToDB(String systemDate,
+    public void writeToMonioringDB(String systemDate,
                           String menuOptionName, String siteDetails, String dbName, String actionDetails,
                           String informationDetails){
 

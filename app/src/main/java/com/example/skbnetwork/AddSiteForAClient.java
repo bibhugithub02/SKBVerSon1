@@ -130,8 +130,8 @@ public class AddSiteForAClient extends AppCompatActivity {
         //Write to monitoring DB ModelForMonitoring
 
         ModelForMonitoring m = new ModelForMonitoring();
-        m.writeToDB(timeStamp,"AddSiteForAClient",dMTASFClientName,
-                "ModelToAddSiteForAClient","Add Record",
+        m.writeToMonioringDB(timeStamp,"Action : AddSiteForAClient",dMTASFClientName,
+                "DataBase : ModelToAddSiteForAClient","Add Record",
                 dMTASFSiteName);
 
 

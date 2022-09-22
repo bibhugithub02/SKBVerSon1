@@ -117,7 +117,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                //NotDeliveredOn18thSep2022 startActivity(i);
+                startActivity(i); //NotDeliveredOn18thSep2022
 
 
             }
@@ -132,7 +132,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                //NotDeliveredOn18thSep2022 startActivity(i);
+                startActivity(i); //NotDeliveredOn18thSep2022
 
 
             }
@@ -148,7 +148,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                //NotDeliveredOn18thSep2022 startActivity(i);
+                startActivity(i); //NotDeliveredOn18thSep2022
 
 
             }
@@ -161,7 +161,7 @@ public class SiteOfficeMenu extends AppCompatActivity {
                 i.putExtra("menu",menuName); //// Send what we have received from calling pgm(MAM for main menu & SIM for OTM received options
                 i.putExtra("menuOption",menuOption);
                 i.putExtra("clientsitename",clientSiteName);
-                //NotDeliveredOn18thSep2022 startActivity(i);
+                startActivity(i); //NotDeliveredOn18thSep2022
 
 
             }

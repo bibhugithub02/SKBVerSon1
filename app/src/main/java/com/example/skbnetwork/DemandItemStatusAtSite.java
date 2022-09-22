@@ -187,7 +187,8 @@ public class DemandItemStatusAtSite extends AppCompatActivity {
                         if(snapshot.exists()){
                             for(DataSnapshot ds : snapshot.getChildren()){
 
-                                tableHeader.addCell(ds.child("dMCSWTISIQMItemCategory").getValue().toString());
+                                //tableHeader.addCell(ds.child("dMCSWTISIQMItemCategory").getValue().toString());
+                                tableHeader.addCell(ds.child("dMCSWTISIQMItemCategory").getValue().toString()+"_" + ds.child("dMCSWTISIQMSubItem").getValue().toString());
                                 int Dmd = Integer.parseInt(ds.child("totalDemand").getValue().toString());
                                 tableHeader.addCell(ds.child("totalDemand").getValue().toString());
                                 tableHeader.addCell(ds.child("totalReceived").getValue().toString());

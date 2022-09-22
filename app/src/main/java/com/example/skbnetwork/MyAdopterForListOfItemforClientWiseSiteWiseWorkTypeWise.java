@@ -162,17 +162,13 @@ public class MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise extends Fir
                                    //Write to monitoring DB ModelForMonitoring
 
                                    ModelForMonitoring m = new ModelForMonitoring();
-                                   m.writeToDB(mpmdemandDate,"MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise", mpmsiteFiller01,
-                                           "ModelPurchaseRequest","Add Record",
+                                   m.writeToMonioringDB(mpmdemandDate,"Action : MyAdopterForListOfItemforClientWiseSiteWiseWorkTypeWise", mpmsiteFiller01,
+                                           "DataBase : ModelPurchaseRequest","Add Record",
                                            mpmsiteFiller02);
-
 
                                    Toast.makeText(itemDetails.getContext(), "New Client added successfully", Toast.LENGTH_SHORT).show();
 
-
                                }
-
-
 
                    });
 
